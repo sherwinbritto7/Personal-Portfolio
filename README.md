@@ -44,6 +44,3 @@ Use the contact form on the website or reach out via:
 
 ---
 
-## 📄 License
-
-This project is licensed under the **MIT License**.
