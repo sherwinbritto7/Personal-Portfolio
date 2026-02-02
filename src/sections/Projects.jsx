@@ -87,7 +87,7 @@ export const Projects = () => {
               <div className="p-6 space-y-4">
                 <div className="flex items-start justify-between">
                   <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
-                    {project.title}
+                    <a href={project.link}>{project.title}</a>
                   </h3>
                   <a
                     href={project.link}
