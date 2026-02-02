@@ -2,7 +2,7 @@
 
 This repository contains the source code for my **personal portfolio website**, where I showcase my work, skills, and experience as a **Web Developer**.
 
-🌐 **Live Website:**[ _Add your deployed link here_](https://sherwinbritto.vercel.app/)
+🌐 **Live Website:**[ _Click to open_](https://sherwinbritto.vercel.app/)
 
 ---
 
