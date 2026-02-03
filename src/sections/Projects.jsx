@@ -17,6 +17,14 @@ const projects = [
     tags: ["Next.js", "Tailwind CSS", "Convex"],
     link: "https://zenaura-events.vercel.app",
   },
+  {
+    title: "SaaS Landing Page-Light",
+    description:
+      "A modern SaaS landing page built with Next.js, Tailwind CSS, and Framer Motion, featuring smooth animations, responsive design, conversion-focused user experience.",
+    image: "/projects/project3.png",
+    tags: ["React", "Next.js", "Tailwind CSS", "Framer Motion"],
+    link: "https://zenpage-light.vercel.app",
+  },
 ];
 
 export const Projects = () => {
