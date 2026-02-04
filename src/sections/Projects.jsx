@@ -28,9 +28,9 @@ const projects = [
   {
     title: "SaaS Landing Page-Dark",
     description:
-      "A premium dark-themed SaaS landing page built with Next.js and Framer Motion, featuring high-contrast design, sophisticated scroll-linked animations, and a sleek modern aesthetic. [Movable-Objects as easter eggs.]",
+      "A premium dark-themed SaaS landing page built with Next.js and Framer Motion. Features sophisticated scroll-linked animations, a sleek modern aesthetic, and interactive easter eggs with draggable UI elements.",
     image: "/projects/project4.png",
-    tags: ["Next.js", "Tailwind CSS", "Framer Motion", "Dark Mode"],
+    tags: ["Next.js", "Framer Motion", "Interactivity", "Dark Mode"],
     link: "https://zenpage-dark.vercel.app",
   },
 ];
