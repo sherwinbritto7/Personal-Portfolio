@@ -25,6 +25,14 @@ const projects = [
     tags: ["React", "Next.js", "Tailwind CSS", "Framer Motion"],
     link: "https://zenpage-light.vercel.app",
   },
+  {
+    title: "SaaS Landing Page-Dark",
+    description:
+      "A premium dark-themed SaaS landing page built with Next.js and Framer Motion, featuring high-contrast design, sophisticated scroll-linked animations, and a sleek modern aesthetic. [Movable-Objects as easter eggs.]",
+    image: "/projects/project4.png",
+    tags: ["Next.js", "Tailwind CSS", "Framer Motion", "Dark Mode"],
+    link: "https://zenpage-dark.vercel.app",
+  },
 ];
 
 export const Projects = () => {
@@ -55,10 +63,7 @@ export const Projects = () => {
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 gap-8">
           {projects.map((project, idx) => (
-            <div
-              key={idx}
-              className="group glass rounded-2xl overflow-hidden"
-            >
+            <div key={idx} className="group glass rounded-2xl overflow-hidden">
               {/* Image */}
               <div className="relative overflow-hidden aspect-video">
                 <a
@@ -137,4 +142,3 @@ export const Projects = () => {
     </section>
   );
 };
-
