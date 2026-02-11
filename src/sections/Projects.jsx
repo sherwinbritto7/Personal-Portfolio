@@ -33,6 +33,14 @@ const projects = [
     tags: ["Next.js", "Framer Motion", "Interactivity", "Dark Mode"],
     link: "https://zenpage-dark.vercel.app",
   },
+  {
+    title: "ZenAi - AI-Tools Suite",
+    description:
+      "A comprehensive AI productivity platform built on the PERN stack. Integrates LLMs for content generation and Resume analysis with Cloudinary-powered AI image manipulation, all secured by Clerk authentication.",
+    image: "/projects/project5.png",
+    tags: ["PERN Stack", "OpenAI", "Cloudinary", "Clerk Auth"],
+    link: "https://zenai.vercel.app",
+  },
 ];
 
 export const Projects = () => {
