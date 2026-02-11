@@ -85,9 +85,9 @@ export const Hero = () => {
               <a href="#contact">
                 <Button size="lg">
                   Contact Me
-                  <ArrowRight className="w-5 h-5" />             
+                  <ArrowRight className="w-5 h-5" />
                 </Button>
-              </a>    
+              </a>
               <a
                 href="/Sherwin_Britto_CV.pdf"
                 download="Sherwin_Britto_Resume.pdf"
@@ -98,8 +98,7 @@ export const Hero = () => {
                   <Download className="w-5 h-5" />
                   Download CV
                 </AnimatedBorderButton>
-              </a>        
-             
+              </a>
             </div>
 
             {/* Social Links */}
@@ -127,9 +126,12 @@ export const Hero = () => {
             {/* Profile Image */}
             <div className="relative max-w-md mx-auto">
               <div
-                className="absolute inset-0 
-              rounded-3xl bg-gradient-to-br 
-              from-primary/30 via-transparent 
+                className="absolute inset-0
+
+              rounded-3xl bg-gradient-to-br
+
+              from-primary/30 via-transparent
+
               to-primary/10 blur-2xl animate-pulse"
               />
               <div className="relative glass rounded-3xl p-2 glow-border">
