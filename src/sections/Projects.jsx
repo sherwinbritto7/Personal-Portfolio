@@ -41,6 +41,14 @@ const projects = [
     tags: ["PERN Stack", "OpenAI", "Cloudinary", "Clerk Auth"],
     link: "https://zenai.vercel.app",
   },
+  {
+    title: "ZenTrack - Price Tracker",
+    description:
+      "A sophisticated price tracking dashboard that monitors product prices in real-time. Built with Next.js and Supabase, it uses Firecrawl for intelligent web scraping, Recharts for visual trends, and Resend for automated email alerts.",
+    image: "/projects/project6.png",
+    tags: ["Next.js", "Supabase", "Firecrawl", "Recharts"],
+    link: "https://zentrack-tracker.vercel.app",
+  },
 ];
 
 export const Projects = () => {
