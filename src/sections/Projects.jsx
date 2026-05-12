@@ -47,7 +47,15 @@ const projects = [
       "A sophisticated price tracking dashboard that monitors product prices in real-time. Built with Next.js and Supabase, it uses Firecrawl for intelligent web scraping, Recharts for visual trends, and Resend for automated email alerts.",
     image: "/projects/project6.png",
     tags: ["Next.js", "Supabase", "Firecrawl", "Recharts"],
-    link: "https://zentrack-tracker.vercel.app",
+    link: "https://zentrackpro.vercel.app",
+  },
+  {
+    title: "ZenTask - Project Management",
+    description:
+      "A modern project management tool designed for teams that value simplicity and speed. Features a beautifully designed workspace to manage tasks, team members, and deadlines with Zen-like clarity.",
+    image: "/projects/project7.png",
+    tags: ["React Router", "React", "Tailwind CSS", "Zod"],
+    link: "https://zentaskpjm.vercel.app",
   },
 ];
 
