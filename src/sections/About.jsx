@@ -130,7 +130,7 @@ export const About = () => {
                 </span>
               </div>
 
-              <h2 className="text-4xl md:text-5xl font-bold leading-tight text-foreground">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-foreground">
                 Building better web experiences,
                 <span className="font-serif italic font-normal text-primary block mt-2">
                   one component at a time.
@@ -162,19 +162,19 @@ export const About = () => {
             </div>
 
             {/* Dynamic Interactive Stats Banner */}
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-3 gap-2 md:gap-4">
               {stats.map((stat, idx) => (
                 <div
                   key={idx}
-                  className="glass p-4 rounded-2xl text-center border border-white/5 bg-white/5 relative overflow-hidden group hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5"
+                  className="glass p-3 md:p-4 rounded-2xl text-center border border-white/5 bg-white/5 relative overflow-hidden group hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5"
                 >
-                  <div className="font-serif text-3xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
+                  <div className="font-serif text-2xl md:text-3xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
                     {stat.value}
                   </div>
-                  <div className="text-xs font-medium text-foreground/80 mt-1">
+                  <div className="text-[10px] md:text-xs font-medium text-foreground/80 mt-1 leading-tight">
                     {stat.label}
                   </div>
-                  <div className="text-[10px] text-muted-foreground mt-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="text-[9px] md:text-[10px] text-muted-foreground mt-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden sm:block">
                     {stat.description}
                   </div>
                   {/* Glowing background bubble */}
@@ -226,7 +226,7 @@ export const About = () => {
             </div>
 
             {/* Render Tab Content with Framer Motion AnimatePresence */}
-            <div className="min-h-[450px]">
+            <div className="min-h-0 md:min-h-[450px]">
               <AnimatePresence mode="wait">
                 {activeTab === "values" ? (
                   <motion.div
@@ -242,7 +242,7 @@ export const About = () => {
                         key={idx}
                         variants={itemVariants}
                         whileHover={{ y: -6, scale: 1.01 }}
-                        className="group relative glass p-8 rounded-2xl border border-white/5 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 bg-white/5"
+                        className="group relative glass p-5 sm:p-8 rounded-2xl border border-white/5 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 bg-white/5"
                       >
                         {/* Glowing Background Overlay */}
                         <div
