@@ -1,4 +1,5 @@
-import { ArrowUpRight } from "lucide-react";
+import { motion } from "framer-motion";
+import { ArrowUpRight, Github, Sparkles } from "lucide-react";
 
 const projects = [
   {
@@ -8,6 +9,8 @@ const projects = [
     image: "/projects/project1.png",
     tags: ["React", "Tailwind CSS", "MongoDB"],
     link: "https://zenresume.vercel.app",
+    github: "https://github.com/sherwinbritto7/zenresume",
+    category: "React / Next.js",
   },
   {
     title: "ZenAura",
@@ -16,152 +19,186 @@ const projects = [
     image: "/projects/project2.png",
     tags: ["Next.js", "Tailwind CSS", "Convex"],
     link: "https://zenaura-events.vercel.app",
+    github: "https://github.com/sherwinbritto7/zenaura",
+    category: "Full Stack",
   },
   {
     title: "SaaS Landing Page-Light",
     description:
-      "A modern SaaS landing page built with Next.js, Tailwind CSS, and Framer Motion, featuring smooth animations, responsive design, conversion-focused user experience.",
+      "A modern SaaS landing page built with Next.js, Tailwind CSS, and Framer Motion, featuring smooth animations and a conversion-focused experience.",
     image: "/projects/project3.png",
     tags: ["React", "Next.js", "Tailwind CSS", "Framer Motion"],
     link: "https://zenpage-light.vercel.app",
+    github: "https://github.com/sherwinbritto7/zenpage-light",
+    category: "SaaS / UI",
   },
   {
     title: "SaaS Landing Page-Dark",
     description:
-      "A premium dark-themed SaaS landing page built with Next.js and Framer Motion. Features sophisticated scroll-linked animations, a sleek modern aesthetic, and interactive easter eggs with draggable UI elements.",
+      "A premium dark-themed SaaS landing page built with Next.js and Framer Motion. Features sophisticated scroll-linked animations and interactive elements.",
     image: "/projects/project4.png",
     tags: ["Next.js", "Framer Motion", "Interactivity", "Dark Mode"],
     link: "https://zenpage-dark.vercel.app",
+    github: "https://github.com/sherwinbritto7/zenpage-dark",
+    category: "SaaS / UI",
   },
   {
     title: "ZenAi - AI-Tools Suite",
     description:
-      "A comprehensive AI productivity platform built on the PERN stack. Integrates LLMs for content generation and Resume analysis with Cloudinary-powered AI image manipulation, all secured by Clerk authentication.",
+      "A comprehensive AI productivity platform built on the PERN stack. Integrates LLMs for content generation and Cloudinary-powered image manipulation.",
     image: "/projects/project5.png",
     tags: ["PERN Stack", "OpenAI", "Cloudinary", "Clerk Auth"],
     link: "https://zenai.vercel.app",
+    github: "https://github.com/sherwinbritto7/zenai",
+    category: "Full Stack",
   },
   {
     title: "ZenTrack - Price Tracker",
     description:
-      "A sophisticated price tracking dashboard that monitors product prices in real-time. Built with Next.js and Supabase, it uses Firecrawl for intelligent web scraping, Recharts for visual trends, and Resend for automated email alerts.",
+      "A price tracking dashboard monitoring product prices in real-time. Built with Next.js and Supabase, utilizing Firecrawl web scraping.",
     image: "/projects/project6.png",
     tags: ["Next.js", "Supabase", "Firecrawl", "Recharts"],
     link: "https://zentrackpro.vercel.app",
+    github: "https://github.com/sherwinbritto7/zentrack",
+    category: "Full Stack",
   },
   {
     title: "ZenTask - Project Management",
     description:
-      "A modern project management tool designed for teams that value simplicity and speed. Features a beautifully designed workspace to manage tasks, team members, and deadlines with Zen-like clarity.",
+      "A modern project management tool designed for speed and simplicity. Features a beautifully designed workspace to manage team tasks.",
     image: "/projects/project7.png",
     tags: ["React Router", "React", "Tailwind CSS", "Zod"],
     link: "https://zentaskpjm.vercel.app",
+    github: "https://github.com/sherwinbritto7/zentask",
+    category: "React / Next.js",
   },
 ];
 
 export const Projects = () => {
+
   return (
-    <section id="projects" className="py-32 relative overflow-hidden">
-      {/* Background glows */}
-      <div className="absolute top-1/4 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 left-0 w-64 h-64 bg-highlight/5 rounded-full blur-3xl" />
+    <section id="projects" className="py-32 relative overflow-hidden bg-background">
+      {/* Background glow effects */}
+      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-highlight/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
+        
         {/* Header */}
-        <div className="text-center mx-auto max-w-3xl mb-16">
-          <span className="text-secondary-foreground text-sm font-medium tracking-wider uppercase">
-            Featured Work
-          </span>
-          <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 text-secondary-foreground">
+        <div className="text-center mx-auto max-w-3xl mb-16 space-y-4">
+          <div>
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs font-semibold uppercase tracking-wider text-primary">
+              <Sparkles className="w-3.5 h-3.5" />
+              Featured Work
+            </span>
+          </div>
+
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground">
             Projects that{" "}
-            <span className="font-serif italic font-normal text-white">
+            <span className="font-serif italic font-normal text-primary">
               showcase my skills.
             </span>
           </h2>
-          <p className="text-muted-foreground">
-            A selection of my recent projects, showcasing my skills in building
-            modern, responsive, and user-friendly web applications.
+          
+          <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto text-sm md:text-base">
+            A curated selection of my recent creations, showcasing expertise in 
+            building responsive, high-performance, and delightful web applications.
           </p>
         </div>
 
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 gap-8">
-          {projects.map((project, idx) => (
-            <div key={idx} className="group glass rounded-2xl overflow-hidden">
-              {/* Image */}
-              <div className="relative overflow-hidden aspect-video">
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block w-full h-full"
-                >
+        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 lg:gap-10">
+            {projects.map((project, idx) => (
+              <motion.div
+                key={project.title}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: idx * 0.07 }}
+                className="group relative glass rounded-3xl overflow-hidden border border-white/5 hover:border-primary/45 hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 bg-white/5"
+              >
+                {/* Image Section */}
+                <div className="relative overflow-hidden aspect-video">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                </a>
-
-                {/* Gradient overlay (click-through) */}
-                <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent opacity-60 pointer-events-none" />
-
-                {/* Hover icon */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`Open ${project.title}`}
-                    className="p-3 rounded-full glass hover:bg-primary hover:text-primary-foreground transition-all"
-                  >
-                    <ArrowUpRight className="w-5 h-5" />
-                  </a>
-                </div>
-              </div>
-
-              {/* Content */}
-              <div className="p-6 space-y-4">
-                <div className="flex items-start justify-between">
-                  <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
-                    <a href={project.link}>{project.title}</a>
-                  </h3>
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`Open ${project.title}`}
-                  >
-                    <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
-                  </a>
-                </div>
-
-                <p className="text-muted-foreground text-sm">
-                  {project.description}
-                </p>
-
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag, tagIdx) => (
-                    <span
-                      key={tagIdx}
-                      className="px-4 py-1.5 rounded-full bg-surface text-xs font-medium border border-border/50 text-muted-foreground hover:border-primary/50 hover:text-primary transition-all"
-                    >
-                      {tag}
+                  
+                  {/* Elegant Gradient overlays */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent opacity-80 pointer-events-none" />
+                  <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                  
+                  {/* Category Ribbon */}
+                  <div className="absolute top-4 left-4">
+                    <span className="px-3 py-1 rounded-lg glass text-[10px] uppercase font-bold tracking-wider text-primary border border-primary/20">
+                      {project.category}
                     </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-        {/* View All CTA */}
+                  </div>
 
-        {/* <div className="text-center mt-12 animate-fade-in animation-delay-500">
-          <AnimatedBorderButton>
-            View All Projects
-            <ArrowUpRight className="w-5 h-5" />
-          </AnimatedBorderButton>
-        </div> */}
+                  {/* Dual Floating CTA Links on Hover */}
+                  <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-4 py-2.5 rounded-full glass bg-primary hover:bg-primary/95 text-white text-xs font-semibold shadow-lg shadow-primary/20 hover:scale-105 transition-all duration-300"
+                    >
+                      Live Demo
+                      <ArrowUpRight className="w-4 h-4" />
+                    </a>
+                    
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-4 py-2.5 rounded-full glass bg-white/10 hover:bg-white/20 text-white text-xs font-semibold hover:scale-105 transition-all duration-300"
+                      >
+                        Code
+                        <Github className="w-4 h-4" />
+                      </a>
+                    )}
+                  </div>
+                </div>
+
+                {/* Content Section */}
+                <div className="p-6 md:p-8 space-y-4">
+                  <div className="flex items-start justify-between">
+                    <h3 className="text-xl md:text-2xl font-bold group-hover:text-primary transition-colors duration-300">
+                      <a href={project.link} target="_blank" rel="noopener noreferrer">
+                        {project.title}
+                      </a>
+                    </h3>
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Open ${project.title}`}
+                      className="p-1 rounded-full text-muted-foreground hover:text-primary transition-colors duration-300"
+                    >
+                      <ArrowUpRight className="w-5.5 h-5.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    </a>
+                  </div>
+
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    {project.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-2 pt-2">
+                    {project.tags.map((tag, tagIdx) => (
+                      <span
+                        key={tagIdx}
+                        className="px-3.5 py-1 rounded-lg bg-surface text-[11px] font-semibold border border-border/50 text-muted-foreground group-hover:border-primary/20 group-hover:text-primary transition-all duration-300"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+        </div>
+
       </div>
     </section>
   );
