@@ -140,7 +140,7 @@ export const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="container mx-auto px-6 pt-32 pb-20 relative z-10">
+      <div className="container mx-auto px-6 pt-28 pb-12 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Column - Text Content */}
           <motion.div
@@ -150,7 +150,7 @@ export const Hero = () => {
             className="space-y-8"
           >
             <motion.div variants={itemVariants}>
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-primary border border-primary/20 shadow-md">
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full lg-badge text-sm text-primary">
                 <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
                 Web Developer - React Specialist
               </span>
@@ -210,7 +210,7 @@ export const Hero = () => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 rounded-full glass hover:bg-primary/10 hover:text-primary border border-white/5 hover:border-primary/30 transition-all duration-300 hover:scale-110 shadow-sm"
+                  className="p-3 rounded-full liquid-glass-pill hover:bg-primary/10 hover:text-primary hover:border-primary/30 transition-all duration-300 hover:scale-110"
                 >
                   {<social.icon className="w-5 h-5" />}
                 </a>
@@ -225,6 +225,31 @@ export const Hero = () => {
 
             {/* Tilt Perspective Wrapper */}
             <div className="relative max-w-md w-full" style={{ perspective: "1000px" }}>
+              {/* Floating Badge 1 - "Available for work" — bottom-right */}
+              <div
+                className="absolute -bottom-4 -right-4 z-20 liquid-glass rounded-xl px-4 py-3 shadow-xl animate-float pointer-events-none"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="relative flex h-3 w-3">
+                    <span className="animate-ripple absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500" />
+                  </div>
+                  <span className="text-sm font-medium text-foreground">
+                    Available for work
+                  </span>
+                </div>
+              </div>
+
+              {/* Floating Badge 2 - "Status / Crafting Solutions" — top-left */}
+              <div
+                className="absolute -top-4 -left-4 z-20 liquid-glass rounded-xl px-4 py-3 shadow-xl animate-float animation-delay-500 pointer-events-none"
+              >
+                <div className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">Status</div>
+                <div className="text-sm font-bold text-primary flex items-center gap-1.5 mt-0.5">
+                  <span>🚀 Crafting Solutions</span>
+                </div>
+              </div>
+
               <motion.div
                 ref={cardRef}
                 onMouseMove={handleCardMouseMove}
@@ -232,7 +257,7 @@ export const Hero = () => {
                 animate={{ rotateX, rotateY }}
                 transition={{ type: "spring", stiffness: 150, damping: 20 }}
                 style={{ transformStyle: "preserve-3d" }}
-                className="relative glass rounded-3xl p-2.5 glow-border cursor-pointer group shadow-2xl border border-white/10 hover:border-primary/30 transition-colors duration-300"
+                className="relative liquid-glass rounded-3xl p-2.5 cursor-pointer group shadow-2xl hover:border-primary/30 transition-colors duration-300"
               >
                 {/* 3D Floating Profile Image */}
                 <div style={{ transform: "translateZ(30px)", transformStyle: "preserve-3d" }} className="overflow-hidden rounded-2xl">
@@ -242,40 +267,13 @@ export const Hero = () => {
                     className="w-full aspect-[4/5] object-cover rounded-2xl transform transition-transform duration-500 group-hover:scale-[1.02]"
                   />
                 </div>
-
-                {/* Floating Badge 1 - bottom-4 -right-4 */}
-                <div
-                  className="absolute -bottom-4 -right-4 glass rounded-xl px-4 py-3 shadow-xl border border-white/10 animate-float"
-                  style={{ transform: "translateZ(50px)" }}
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="relative flex h-3 w-3">
-                      <span className="animate-ripple absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                      <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500" />
-                    </div>
-                    <span className="text-sm font-medium text-foreground">
-                      Available for work
-                    </span>
-                  </div>
-                </div>
-
-                {/* Floating Badge 2 - top-4 -left-4 */}
-                <div
-                  className="absolute -top-4 -left-4 glass rounded-xl px-4 py-3 shadow-xl border border-white/10 animate-float animation-delay-500"
-                  style={{ transform: "translateZ(50px)" }}
-                >
-                  <div className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">Status</div>
-                  <div className="text-sm font-bold text-primary flex items-center gap-1.5 mt-0.5">
-                    <span>🚀 Crafting Solutions</span>
-                  </div>
-                </div>
               </motion.div>
             </div>
           </div>
         </div>
 
         {/* Skills Marquee - Masked Smooth Fading Edges */}
-        <div className="mt-24 animate-fade-in animation-delay-600">
+        <div className="mt-16 animate-fade-in animation-delay-600">
           <p className="text-sm text-muted-foreground mb-8 text-center tracking-wider uppercase font-medium opacity-80">
             Technologies I work with
           </p>
@@ -283,7 +281,7 @@ export const Hero = () => {
             <div className="flex animate-marquee py-2">
               {[...skills, ...skills].map((skill, idx) => (
                 <div key={idx} className="flex-shrink-0 px-4">
-                  <span className="inline-flex items-center justify-center px-6 py-2.5 rounded-xl glass border border-white/5 hover:border-primary/30 text-base font-semibold text-muted-foreground/80 hover:text-primary transition-all duration-300 hover:scale-105 shadow-md">
+                  <span className="inline-flex items-center justify-center px-6 py-2.5 rounded-xl lg-badge text-base font-semibold text-muted-foreground/80 hover:text-primary transition-all duration-300 hover:scale-105">
                     {skill}
                   </span>
                 </div>

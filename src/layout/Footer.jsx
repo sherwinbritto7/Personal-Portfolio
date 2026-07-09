@@ -10,8 +10,8 @@ const socialLinks = [
 
 const footerLinks = [
   { href: "#about", label: "About" },
+  { href: "#experience", label: "Experience" },
   { href: "#projects", label: "Projects" },
-  // { href: "#experience", label: "Experience" },
   { href: "#feedback", label: "Feedback" },
   { href: "#contact", label: "Contact" },
 ];
@@ -20,7 +20,7 @@ export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-12 border-t border-border">
+    <footer className="py-12 border-t border-white/5">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Logo & Copyright */}
@@ -53,7 +53,7 @@ export const Footer = () => {
                 key={idx}
                 href={social.href}
                 aria-label={social.label}
-                className="p-2 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all"
+                className="p-2 rounded-full liquid-glass-pill hover:bg-primary/10 hover:text-primary transition-all duration-300 hover:scale-110"
               >
                 <social.icon className="w-5 h-5" />
               </a>

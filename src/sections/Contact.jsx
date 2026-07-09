@@ -134,25 +134,22 @@ export const Contact = () => {
     const state = getValidationState(field);
     const isFocused = focusedField === field;
     
-    let borderClass = "border-border";
+    let borderClass = "";
     let glowClass = "";
 
     if (isFocused) {
       if (state === "invalid") {
-        borderClass = "border-red-500 focus:border-red-500";
-        glowClass = "ring-2 ring-red-500/20";
+        borderClass = "!border-red-500";
+        glowClass = "!shadow-[inset_0_2px_6px_rgba(0,0,0,0.18),0_0_0_3px_rgba(239,68,68,0.14)]";
       } else if (state === "valid") {
-        borderClass = "border-emerald-500 focus:border-emerald-500";
-        glowClass = "ring-2 ring-emerald-500/20";
-      } else {
-        borderClass = "border-primary focus:border-primary";
-        glowClass = "ring-2 ring-primary/20";
+        borderClass = "!border-emerald-500";
+        glowClass = "!shadow-[inset_0_2px_6px_rgba(0,0,0,0.18),0_0_0_3px_rgba(16,185,129,0.14)]";
       }
     } else {
       if (state === "invalid") {
-        borderClass = "border-red-500/60";
+        borderClass = "!border-red-500/60";
       } else if (state === "valid") {
-        borderClass = "border-emerald-500/40";
+        borderClass = "!border-emerald-500/40";
       }
     }
 
@@ -160,7 +157,7 @@ export const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-32 relative overflow-hidden bg-background">
+    <section id="contact" className="py-14 md:py-20 relative overflow-hidden bg-background">
       {/* Background spotlights */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-[450px] h-[450px] bg-primary/5 rounded-full blur-[120px]" />
@@ -172,7 +169,7 @@ export const Contact = () => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
           <div>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs font-semibold uppercase tracking-wider text-primary">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full lg-badge text-xs font-semibold uppercase tracking-wider text-primary">
               <Sparkles className="w-3.5 h-3.5" />
               Get In Touch
             </span>
@@ -194,7 +191,7 @@ export const Contact = () => {
         <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto items-stretch">
           
           {/* Left Column - Contact Form */}
-          <div className="glass p-8 rounded-3xl border border-white/10 bg-white/5 relative flex flex-col justify-between">
+          <div className="liquid-glass lg-clip p-8 rounded-3xl relative flex flex-col justify-between">
             <form className="space-y-6" onSubmit={handleSubmit} noValidate>
               
               {/* Name Field */}
@@ -212,13 +209,13 @@ export const Contact = () => {
                   onChange={(e) =>
                     setFormData({ ...formData, name: e.target.value })
                   }
-                  className={`w-full px-4 py-3 bg-surface rounded-xl border outline-none transition-all duration-300 text-foreground ${getInputStyles("name")}`}
+                  className={`w-full px-4 py-3 lg-input rounded-xl outline-none transition-all duration-300 ${getInputStyles("name")}`}
                 />
                 <label
                   htmlFor="name"
                   className={`absolute left-4 transition-all duration-300 pointer-events-none select-none ${
                     isFloating("name")
-                      ? "-top-2.5 text-xs text-primary bg-surface px-1.5 font-bold"
+                      ? "-top-2.5 text-xs text-primary bg-transparent px-1.5 font-bold"
                       : "top-3.5 text-sm text-muted-foreground"
                   }`}
                 >
@@ -246,13 +243,13 @@ export const Contact = () => {
                   onChange={(e) =>
                     setFormData({ ...formData, email: e.target.value })
                   }
-                  className={`w-full px-4 py-3 bg-surface rounded-xl border outline-none transition-all duration-300 text-foreground ${getInputStyles("email")}`}
+                  className={`w-full px-4 py-3 lg-input rounded-xl outline-none transition-all duration-300 ${getInputStyles("email")}`}
                 />
                 <label
                   htmlFor="email"
                   className={`absolute left-4 transition-all duration-300 pointer-events-none select-none ${
                     isFloating("email")
-                      ? "-top-2.5 text-xs text-primary bg-surface px-1.5 font-bold"
+                      ? "-top-2.5 text-xs text-primary bg-transparent px-1.5 font-bold"
                       : "top-3.5 text-sm text-muted-foreground"
                   }`}
                 >
@@ -280,13 +277,13 @@ export const Contact = () => {
                   onChange={(e) =>
                     setFormData({ ...formData, message: e.target.value })
                   }
-                  className={`w-full px-4 py-3 bg-surface rounded-xl border outline-none transition-all duration-300 resize-none text-foreground ${getInputStyles("message")}`}
+                  className={`w-full px-4 py-3 lg-input rounded-xl outline-none transition-all duration-300 resize-none ${getInputStyles("message")}`}
                 />
                 <label
                   htmlFor="message"
                   className={`absolute left-4 transition-all duration-300 pointer-events-none select-none ${
                     isFloating("message")
-                      ? "-top-2.5 text-xs text-primary bg-surface px-1.5 font-bold"
+                      ? "-top-2.5 text-xs text-primary bg-transparent px-1.5 font-bold"
                       : "top-3.5 text-sm text-muted-foreground"
                   }`}
                 >
@@ -346,7 +343,7 @@ export const Contact = () => {
 
           {/* Right Column - Contact Info & Availability */}
           <div className="space-y-6 flex flex-col justify-between">
-            <div className="glass rounded-3xl p-8 border border-white/10 bg-white/5 space-y-6">
+            <div className="liquid-glass lg-clip rounded-3xl p-8 space-y-6">
               <h3 className="text-xl font-bold text-foreground">
                 Contact Information
               </h3>
@@ -377,7 +374,7 @@ export const Contact = () => {
             </div>
 
             {/* Availability Banner */}
-            <div className="glass rounded-3xl p-8 border border-primary/20 bg-white/5 space-y-3 relative overflow-hidden group hover:border-primary/45 transition-all duration-300">
+            <div className="liquid-glass lg-clip rounded-3xl p-8 space-y-3 relative overflow-hidden group hover:border-primary/40 transition-all duration-300">
               <div className="flex items-center gap-3">
                 <span className="relative flex h-3.5 w-3.5">
                   <span className="animate-ripple absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />

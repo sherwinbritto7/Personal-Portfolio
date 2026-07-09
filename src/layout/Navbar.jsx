@@ -5,8 +5,8 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
   { href: "#about", label: "About" },
+  { href: "#experience", label: "Experience" },
   { href: "#projects", label: "Projects" },
-  // { href: "#experience", label: "Experience" },
   { href: "#feedback", label: "Feedback" },
 ];
 
@@ -27,7 +27,7 @@ export const Navbar = () => {
 
   // Scroll-spy: picks the section whose top is closest to (but not past) the viewport top
   useEffect(() => {
-    const sectionIds = ["about", "projects", "feedback"];
+    const sectionIds = ["about", "experience", "projects", "feedback"];
     const NAVBAR_OFFSET = 100; // px offset to account for fixed navbar height
 
     const handleScroll = () => {
@@ -62,23 +62,33 @@ export const Navbar = () => {
   }, []);
 
   return (
-    <div
-      className={`fixed top-0 left-0 right-0 z-50 flex justify-center w-full transition-all duration-500 ${
-        isScrolled || isMobileMenuOpen ? "pt-2 px-4 md:px-0" : "pt-0 px-0"
-      }`}
+    <motion.div
+      layout
+      className={`fixed top-0 left-0 right-0 z-50 flex justify-center w-full`}
+      animate={{
+        paddingTop: isScrolled || isMobileMenuOpen ? 8 : 0,
+        paddingLeft: isScrolled || isMobileMenuOpen ? 16 : 0,
+        paddingRight: isScrolled || isMobileMenuOpen ? 16 : 0,
+      }}
+      transition={{ duration: 0.45, ease: [0.25, 0.46, 0.45, 0.94] }}
     >
-      <header
-        className={`w-full transition-all duration-500 ease-in-out ${
-          isScrolled
-            ? `max-w-5xl ${
-                isMobileMenuOpen ? "rounded-3xl" : "rounded-full"
-              } glass-strong border border-white/10 shadow-2xl shadow-black/30 py-3 px-6 md:px-8 glow-border`
-            : `max-w-7xl py-6 px-6 md:px-12 ${
-                isMobileMenuOpen
-                  ? "glass-strong rounded-3xl border border-white/10 shadow-xl"
-                  : "bg-transparent border-transparent"
-              }`
+      <motion.header
+        layout
+        animate={{
+          borderRadius: isScrolled
+            ? isMobileMenuOpen ? 24 : 9999
+            : isMobileMenuOpen ? 24 : 0,
+          maxWidth: isScrolled ? 896 : 1280,
+          paddingTop: isScrolled ? 12 : 24,
+          paddingBottom: isScrolled ? 12 : 24,
+        }}
+        transition={{ duration: 0.45, ease: [0.25, 0.46, 0.45, 0.94] }}
+        className={`w-full ${
+          isScrolled || isMobileMenuOpen
+            ? "liquid-glass px-6 md:px-8"
+            : "bg-transparent px-6 md:px-12"
         }`}
+        style={{ willChange: "border-radius, max-width, padding" }}
       >
         <nav className="flex flex-col gap-4 w-full">
           <div className="flex items-center justify-between w-full">
@@ -98,7 +108,7 @@ export const Navbar = () => {
 
             {/* Desktop Nav */}
             <div className="hidden md:flex items-center gap-1">
-              <div className="glass rounded-full px-2 py-1 flex items-center gap-1.5 relative">
+              <div className="liquid-glass-pill rounded-full px-2 py-1 flex items-center gap-1.5 relative">
                 {navLinks.map((link, index) => {
                   const isActive = activeSection === link.href.slice(1);
                   return (
@@ -107,7 +117,7 @@ export const Navbar = () => {
                       key={index}
                       onMouseEnter={() => setHoveredIndex(index)}
                       onMouseLeave={() => setHoveredIndex(null)}
-                      className={`px-4 py-2 text-sm relative rounded-full transition-colors duration-300 font-semibold ${
+                      className={`px-4 py-2 text-sm relative z-10 rounded-full transition-colors duration-300 font-semibold ${
                         isActive
                           ? "text-primary font-bold"
                           : "text-muted-foreground hover:text-foreground"
@@ -117,7 +127,7 @@ export const Navbar = () => {
                       {hoveredIndex === index && (
                         <motion.div
                           layoutId="nav-hover-pill"
-                          className="absolute inset-0 bg-white/5 rounded-full z-0"
+                          className="absolute inset-0 bg-white/8 rounded-full z-0"
                           transition={{ type: "spring", stiffness: 380, damping: 30 }}
                         />
                       )}
@@ -213,7 +223,7 @@ export const Navbar = () => {
             )}
           </AnimatePresence>
         </nav>
-      </header>
-    </div>
+      </motion.header>
+    </motion.div>
   );
 };

@@ -75,19 +75,20 @@ const projects = [
 ];
 
 export const Projects = () => {
-
   return (
-    <section id="projects" className="py-32 relative overflow-hidden bg-background">
+    <section
+      id="projects"
+      className="py-14 md:py-20 relative overflow-hidden bg-background"
+    >
       {/* Background glow effects */}
       <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-highlight/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
-        
         {/* Header */}
         <div className="text-center mx-auto max-w-3xl mb-16 space-y-4">
           <div>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs font-semibold uppercase tracking-wider text-primary">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full lg-badge text-xs font-semibold uppercase tracking-wider text-primary">
               <Sparkles className="w-3.5 h-3.5" />
               Featured Work
             </span>
@@ -99,106 +100,110 @@ export const Projects = () => {
               showcase my skills.
             </span>
           </h2>
-          
+
           <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto text-sm md:text-base">
-            A curated selection of my recent creations, showcasing expertise in 
-            building responsive, high-performance, and delightful web applications.
+            A curated selection of my recent creations, showcasing expertise in
+            building responsive, high-performance, and delightful web
+            applications.
           </p>
         </div>
 
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 lg:gap-10">
-            {projects.map((project, idx) => (
-              <motion.div
-                key={project.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: idx * 0.07 }}
-                className="group relative glass rounded-3xl overflow-hidden border border-white/5 hover:border-primary/45 hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 bg-white/5"
-              >
-                {/* Image Section */}
-                <div className="relative overflow-hidden aspect-video">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  
-                  {/* Elegant Gradient overlays */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent opacity-80 pointer-events-none" />
-                  <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-                  
-                  {/* Category Ribbon */}
-                  <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 rounded-lg glass text-[10px] uppercase font-bold tracking-wider text-primary border border-primary/20">
-                      {project.category}
+          {projects.map((project, idx) => (
+            <motion.div
+              key={project.title}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: idx * 0.07 }}
+              className="group relative lg-card rounded-3xl overflow-hidden hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/8 transition-all duration-500"
+            >
+              {/* Image Section */}
+              <div className="relative overflow-hidden aspect-video">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+
+                {/* Elegant Gradient overlays */}
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent opacity-80 pointer-events-none" />
+                <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+                {/* Category Ribbon */}
+                <div className="absolute top-4 left-4">
+                  <span className="px-3 py-1 rounded-lg lg-badge text-[10px] uppercase font-bold tracking-wider text-primary">
+                    {project.category}
+                  </span>
+                </div>
+
+                {/* Dual Floating CTA Links on Hover */}
+                <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-4 py-2.5 rounded-full glass bg-primary hover:bg-primary/95 text-white text-xs font-semibold shadow-lg shadow-primary/20 hover:scale-105 transition-all duration-300"
+                  >
+                    Live Demo
+                    <ArrowUpRight className="w-4 h-4" />
+                  </a>
+
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-4 py-2.5 rounded-full glass bg-white/10 hover:bg-white/20 text-white text-xs font-semibold hover:scale-105 transition-all duration-300"
+                    >
+                      Code
+                      <Github className="w-4 h-4" />
+                    </a>
+                  )}
+                </div>
+              </div>
+
+              {/* Content Section */}
+              <div className="p-6 md:p-8 space-y-4">
+                <div className="flex items-start justify-between">
+                  <h3 className="text-xl md:text-2xl font-bold group-hover:text-primary transition-colors duration-300">
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {project.title}
+                    </a>
+                  </h3>
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Open ${project.title}`}
+                    className="p-1 rounded-full text-muted-foreground hover:text-primary transition-colors duration-300"
+                  >
+                    <ArrowUpRight className="w-5.5 h-5.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  </a>
+                </div>
+
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {project.description}
+                </p>
+
+                <div className="flex flex-wrap gap-2 pt-2">
+                  {project.tags.map((tag, tagIdx) => (
+                    <span
+                      key={tagIdx}
+                      className="px-3.5 py-1 rounded-lg lg-badge text-[11px] font-semibold text-muted-foreground group-hover:border-primary/25 group-hover:text-primary/80 transition-all duration-300"
+                    >
+                      {tag}
                     </span>
-                  </div>
-
-                  {/* Dual Floating CTA Links on Hover */}
-                  <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-4 py-2.5 rounded-full glass bg-primary hover:bg-primary/95 text-white text-xs font-semibold shadow-lg shadow-primary/20 hover:scale-105 transition-all duration-300"
-                    >
-                      Live Demo
-                      <ArrowUpRight className="w-4 h-4" />
-                    </a>
-                    
-                    {project.github && (
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-4 py-2.5 rounded-full glass bg-white/10 hover:bg-white/20 text-white text-xs font-semibold hover:scale-105 transition-all duration-300"
-                      >
-                        Code
-                        <Github className="w-4 h-4" />
-                      </a>
-                    )}
-                  </div>
+                  ))}
                 </div>
-
-                {/* Content Section */}
-                <div className="p-6 md:p-8 space-y-4">
-                  <div className="flex items-start justify-between">
-                    <h3 className="text-xl md:text-2xl font-bold group-hover:text-primary transition-colors duration-300">
-                      <a href={project.link} target="_blank" rel="noopener noreferrer">
-                        {project.title}
-                      </a>
-                    </h3>
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`Open ${project.title}`}
-                      className="p-1 rounded-full text-muted-foreground hover:text-primary transition-colors duration-300"
-                    >
-                      <ArrowUpRight className="w-5.5 h-5.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                    </a>
-                  </div>
-
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    {project.description}
-                  </p>
-
-                  <div className="flex flex-wrap gap-2 pt-2">
-                    {project.tags.map((tag, tagIdx) => (
-                      <span
-                        key={tagIdx}
-                        className="px-3.5 py-1 rounded-lg bg-surface text-[11px] font-semibold border border-border/50 text-muted-foreground group-hover:border-primary/20 group-hover:text-primary transition-all duration-300"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+              </div>
+            </motion.div>
+          ))}
         </div>
-
       </div>
     </section>
   );

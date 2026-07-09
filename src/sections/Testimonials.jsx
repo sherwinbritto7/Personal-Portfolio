@@ -112,7 +112,7 @@ export const Testimonials = () => {
   return (
     <section
       id="feedback"
-      className="py-24 md:py-32 relative overflow-hidden bg-background"
+      className="py-14 md:py-20 relative overflow-hidden bg-background"
     >
       {/* Background glow orb */}
       <div className="absolute top-1/2 left-1/2 w-[350px] md:w-[800px] h-[350px] md:h-[800px] bg-primary/10 rounded-full blur-[130px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
@@ -122,7 +122,7 @@ export const Testimonials = () => {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
           <div>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs font-semibold uppercase tracking-wider text-primary">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full lg-badge text-xs font-semibold uppercase tracking-wider text-primary">
               <Sparkles className="w-3.5 h-3.5" />
               Recommendations
             </span>
@@ -143,14 +143,14 @@ export const Testimonials = () => {
               <button
                 onClick={() => handleStep("prev")}
                 aria-label="Previous recommendation"
-                className="absolute -left-24 top-1/2 -translate-y-1/2 p-4 rounded-full border border-white/10 bg-white/5 hover:bg-primary hover:text-white transition-all duration-300 shadow-md hover:scale-110 active:scale-95"
+                className="absolute -left-24 top-1/2 -translate-y-1/2 p-4 rounded-full liquid-glass-pill hover:bg-primary hover:text-white transition-all duration-300 hover:scale-110 active:scale-95"
               >
                 <ChevronLeft className="w-6 h-6" />
               </button>
               <button
                 onClick={() => handleStep("next")}
                 aria-label="Next recommendation"
-                className="absolute -right-24 top-1/2 -translate-y-1/2 p-4 rounded-full border border-white/10 bg-white/5 hover:bg-primary hover:text-white transition-all duration-300 shadow-md hover:scale-110 active:scale-95"
+                className="absolute -right-24 top-1/2 -translate-y-1/2 p-4 rounded-full liquid-glass-pill hover:bg-primary hover:text-white transition-all duration-300 hover:scale-110 active:scale-95"
               >
                 <ChevronRight className="w-6 h-6" />
               </button>
@@ -168,7 +168,7 @@ export const Testimonials = () => {
                   exit="exit"
                   ref={cardRef}
                   onMouseMove={handleCardMouseMove}
-                  className="w-full glass p-8 md:p-14 rounded-[2rem] md:rounded-[3rem] border border-white/10 shadow-2xl flex flex-col justify-between relative overflow-hidden bg-white/5"
+                  className="w-full liquid-glass lg-clip p-8 md:p-14 rounded-[2rem] md:rounded-[3rem] flex flex-col justify-between relative overflow-hidden"
                   style={{ transformStyle: "preserve-3d" }}
                 >
                   {/* Radial Spotlight Overlay */}
@@ -232,7 +232,7 @@ export const Testimonials = () => {
                 <ChevronLeft className="w-5 h-5" />
               </button>
 
-              <div className="flex gap-2.5 px-4 py-2 bg-white/5 rounded-full border border-white/5 shadow-inner">
+              <div className="flex gap-2.5 px-4 py-2 liquid-glass-pill rounded-full">
                 {testimonials.map((_, idx) => (
                   <button
                     key={idx}

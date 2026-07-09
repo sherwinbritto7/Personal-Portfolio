@@ -112,7 +112,7 @@ export const About = () => {
   };
 
   return (
-    <section id="about" className="py-24 md:py-32 relative overflow-hidden bg-background">
+    <section id="about" className="py-14 md:py-20 relative overflow-hidden bg-background">
       {/* Background Ornaments */}
       <div className="absolute top-1/3 left-10 w-72 h-72 bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute bottom-10 right-10 w-96 h-96 bg-highlight/5 rounded-full blur-[130px] pointer-events-none" />
@@ -124,7 +124,7 @@ export const About = () => {
           <div className="lg:col-span-5 space-y-10">
             <div className="space-y-6">
               <div>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs font-semibold uppercase tracking-wider text-primary">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full lg-badge text-xs font-semibold uppercase tracking-wider text-primary">
                   <Sparkles className="w-3.5 h-3.5" />
                   About Me
                 </span>
@@ -166,7 +166,7 @@ export const About = () => {
               {stats.map((stat, idx) => (
                 <div
                   key={idx}
-                  className="glass p-3 md:p-4 rounded-2xl text-center border border-white/5 bg-white/5 relative overflow-hidden group hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5"
+                  className="lg-card p-3 md:p-4 rounded-2xl text-center relative group hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5"
                 >
                   <div className="font-serif text-2xl md:text-3xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
                     {stat.value}
@@ -177,7 +177,6 @@ export const About = () => {
                   <div className="text-[9px] md:text-[10px] text-muted-foreground mt-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden sm:block">
                     {stat.description}
                   </div>
-                  {/* Glowing background bubble */}
                   <div className="absolute -bottom-6 -left-6 w-12 h-12 bg-primary/5 rounded-full blur-xl group-hover:bg-primary/20 transition-all duration-500" />
                 </div>
               ))}
@@ -188,7 +187,7 @@ export const About = () => {
           <div className="lg:col-span-7 space-y-8">
             {/* Pill Tab Switcher */}
             <div className="flex justify-center sm:justify-start">
-              <div className="relative flex p-1 bg-surface rounded-full border border-border/80 max-w-md w-full shadow-inner">
+              <div className="relative flex p-1 liquid-glass-pill rounded-full max-w-md w-full">
                 {/* My Values Tab Button */}
                 <button
                   onClick={() => setActiveTab("values")}
@@ -242,7 +241,7 @@ export const About = () => {
                         key={idx}
                         variants={itemVariants}
                         whileHover={{ y: -6, scale: 1.01 }}
-                        className="group relative glass p-5 sm:p-8 rounded-2xl border border-white/5 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 bg-white/5"
+                        className="group relative lg-card p-5 sm:p-8 rounded-2xl hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300"
                       >
                         {/* Glowing Background Overlay */}
                         <div
@@ -279,7 +278,7 @@ export const About = () => {
                       <motion.div
                         key={cat.id}
                         variants={itemVariants}
-                        className="glass rounded-2xl p-6 border border-white/5 bg-white/5 relative overflow-hidden"
+                        className="lg-card rounded-2xl p-6 relative"
                       >
                         {/* Title Header with Category Icon */}
                         <div className="flex items-center gap-3 mb-4">
@@ -296,7 +295,7 @@ export const About = () => {
                           {cat.skills.map((skill, sIdx) => (
                             <div
                               key={sIdx}
-                              className="group relative cursor-default px-4 py-2 rounded-xl bg-surface border border-border/80 text-sm font-semibold text-muted-foreground hover:text-primary hover:border-primary/40 hover:scale-105 transition-all duration-300"
+                              className="group relative cursor-default px-4 py-2 rounded-xl lg-badge text-sm font-semibold text-muted-foreground hover:text-primary hover:border-primary/40 hover:scale-105 transition-all duration-300"
                             >
                               <span>{skill.name}</span>
                               
