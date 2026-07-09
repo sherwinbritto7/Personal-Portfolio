@@ -225,30 +225,7 @@ export const Hero = () => {
 
             {/* Tilt Perspective Wrapper */}
             <div className="relative max-w-md w-full" style={{ perspective: "1000px" }}>
-              {/* Floating Badge 1 - "Available for work" — bottom-right */}
-              <div
-                className="absolute -bottom-4 -right-4 z-20 liquid-glass rounded-xl px-4 py-3 shadow-xl animate-float pointer-events-none"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="relative flex h-3 w-3">
-                    <span className="animate-ripple absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                    <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500" />
-                  </div>
-                  <span className="text-sm font-medium text-foreground">
-                    Available for work
-                  </span>
-                </div>
-              </div>
-
-              {/* Floating Badge 2 - "Status / Crafting Solutions" — top-left */}
-              <div
-                className="absolute -top-4 -left-4 z-20 liquid-glass rounded-xl px-4 py-3 shadow-xl animate-float animation-delay-500 pointer-events-none"
-              >
-                <div className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">Status</div>
-                <div className="text-sm font-bold text-primary flex items-center gap-1.5 mt-0.5">
-                  <span>🚀 Crafting Solutions</span>
-                </div>
-              </div>
+             
 
               <motion.div
                 ref={cardRef}
