@@ -48,6 +48,13 @@
   }
 }
 
+/* Top-level keyframe — not inside any @layer so it's never scoped by CSS processors */
+@keyframes lg-shimmer {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 @layer components {
   .glass {
     background-color: color-mix(in srgb, var(--color-surface) 50%, transparent);
@@ -74,60 +81,49 @@
 
   /* ── Apple Liquid Glass ───────────────────────────────────────────────────── */
 
-  @keyframes lg-shimmer {
-    0%   { background-position: 0% 50%; }
-    50%  { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-
   .liquid-glass {
     position: relative;
-    /* Soft translucent fill */
     background: rgba(255, 255, 255, 0.06);
-    /* Deep blur + saturation = refractive liquid look */
-    backdrop-filter: blur(36px) saturate(160%) brightness(1.04);
     -webkit-backdrop-filter: blur(36px) saturate(160%) brightness(1.04);
-    /* Layered depth shadows */
+    backdrop-filter: blur(36px) saturate(160%) brightness(1.04);
     box-shadow:
       0 6px 24px rgba(0, 0, 0, 0.35),
       0 1px 6px rgba(0, 0, 0, 0.20),
       inset 0 1px 0 rgba(255, 255, 255, 0.14),
       inset 0 -1px 0 rgba(0, 0, 0, 0.10);
-    border: 1px solid rgba(255, 255, 255, 0.10);
-    will-change: transform, border-radius;
-    isolation: isolate;
+    border: 1px solid rgba(255, 255, 255, 0.12);
     overflow: visible;
   }
 
-  /* Use .lg-clip when content should be clipped (testimonials, contact panels) */
+  /* Use .lg-clip when content should be clipped */
   .lg-clip {
     overflow: hidden;
   }
 
-  /* Soft specular top sheen */
+  /* Soft specular top sheen — sits above content as a subtle overlay */
   .liquid-glass::before {
     content: "";
     position: absolute;
     inset: 0;
     border-radius: inherit;
     pointer-events: none;
-    z-index: -1;
+    z-index: 1;
     background: linear-gradient(
       180deg,
-      rgba(255, 255, 255, 0.13) 0%,
+      rgba(255, 255, 255, 0.11) 0%,
       rgba(255, 255, 255, 0.02) 40%,
       transparent 70%
     );
   }
 
-  /* Animated iridescent border */
+  /* Iridescent animated border ring */
   .liquid-glass::after {
     content: "";
     position: absolute;
     inset: -1px;
     border-radius: inherit;
     pointer-events: none;
-    z-index: -1;
+    z-index: 1;
     background: linear-gradient(
       270deg,
       rgba(255, 255, 255, 0.22),
@@ -146,18 +142,17 @@
     padding: 1px;
   }
 
-  /* Pill variant for nav links container */
+  /* Pill variant */
   .liquid-glass-pill {
     position: relative;
     background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(20px) saturate(150%);
     -webkit-backdrop-filter: blur(20px) saturate(150%);
+    backdrop-filter: blur(20px) saturate(150%);
     box-shadow:
       0 3px 12px rgba(0, 0, 0, 0.25),
       inset 0 1px 0 rgba(255, 255, 255, 0.12),
       inset 0 -1px 0 rgba(0, 0, 0, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.09);
-    isolation: isolate;
+    border: 1px solid rgba(255, 255, 255, 0.10);
     overflow: hidden;
   }
 
@@ -167,7 +162,7 @@
     inset: -1px;
     border-radius: inherit;
     pointer-events: none;
-    z-index: -1;
+    z-index: 1;
     background: linear-gradient(
       270deg,
       rgba(255, 255, 255, 0.20),
@@ -185,19 +180,18 @@
     padding: 1px;
   }
 
-  /* ── lg-card: for content panels, skill sections, info cards ─────────── */
+  /* ── lg-card: content panels ─────────────────────────────────────────── */
   .lg-card {
     position: relative;
     background: rgba(255, 255, 255, 0.045);
-    backdrop-filter: blur(28px) saturate(160%) brightness(1.03);
     -webkit-backdrop-filter: blur(28px) saturate(160%) brightness(1.03);
+    backdrop-filter: blur(28px) saturate(160%) brightness(1.03);
     box-shadow:
       0 4px 20px rgba(0, 0, 0, 0.28),
       0 1px 4px rgba(0, 0, 0, 0.14),
       inset 0 1px 0 rgba(255, 255, 255, 0.10),
       inset 0 -1px 0 rgba(0, 0, 0, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    isolation: isolate;
+    border: 1px solid rgba(255, 255, 255, 0.09);
     overflow: hidden;
   }
 
@@ -207,7 +201,7 @@
     inset: 0;
     border-radius: inherit;
     pointer-events: none;
-    z-index: -1;
+    z-index: 1;
     background: linear-gradient(
       180deg,
       rgba(255, 255, 255, 0.07) 0%,
@@ -221,7 +215,7 @@
     inset: -1px;
     border-radius: inherit;
     pointer-events: none;
-    z-index: -1;
+    z-index: 1;
     background: linear-gradient(
       270deg,
       rgba(255, 255, 255, 0.14),
@@ -239,22 +233,22 @@
     padding: 1px;
   }
 
-  /* ── lg-badge: for small pills, tags, skill chips ────────────────────── */
+  /* ── lg-badge: small pills and tags ──────────────────────────────────── */
   .lg-badge {
     background: rgba(255, 255, 255, 0.055);
-    backdrop-filter: blur(14px) saturate(150%);
     -webkit-backdrop-filter: blur(14px) saturate(150%);
+    backdrop-filter: blur(14px) saturate(150%);
     border: 1px solid rgba(255, 255, 255, 0.09);
     box-shadow:
       0 2px 6px rgba(0, 0, 0, 0.18),
       inset 0 1px 0 rgba(255, 255, 255, 0.10);
   }
 
-  /* ── lg-input: for form inputs and textareas ─────────────────────────── */
+  /* ── lg-input: form fields ────────────────────────────────────────────── */
   .lg-input {
-    background: rgba(255, 255, 255, 0.035);
-    backdrop-filter: blur(12px) saturate(140%);
+    background: rgba(255, 255, 255, 0.04);
     -webkit-backdrop-filter: blur(12px) saturate(140%);
+    backdrop-filter: blur(12px) saturate(140%);
     border: 1px solid rgba(255, 255, 255, 0.09);
     box-shadow:
       inset 0 2px 6px rgba(0, 0, 0, 0.18),
