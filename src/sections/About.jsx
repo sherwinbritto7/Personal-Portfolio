@@ -161,26 +161,7 @@ export const About = () => {
               </div>
             </div>
 
-            {/* Dynamic Interactive Stats Banner */}
-            <div className="grid grid-cols-3 gap-2 md:gap-4">
-              {stats.map((stat, idx) => (
-                <div
-                  key={idx}
-                  className="lg-card p-3 md:p-4 rounded-2xl text-center relative group hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5"
-                >
-                  <div className="font-serif text-2xl md:text-3xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
-                    {stat.value}
-                  </div>
-                  <div className="text-[10px] md:text-xs font-medium text-foreground/80 mt-1 leading-tight">
-                    {stat.label}
-                  </div>
-                  <div className="text-[9px] md:text-[10px] text-muted-foreground mt-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden sm:block">
-                    {stat.description}
-                  </div>
-                  <div className="absolute -bottom-6 -left-6 w-12 h-12 bg-primary/5 rounded-full blur-xl group-hover:bg-primary/20 transition-all duration-500" />
-                </div>
-              ))}
-            </div>
+           
           </div>
 
           {/* Right Column - Tabs Switcher & Content */}
