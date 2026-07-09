@@ -136,130 +136,119 @@ export const Testimonials = () => {
           </h2>
         </div>
 
-        <div className="max-w-4xl mx-auto group">
-          <div className="relative">
-            {/* Desktop Navigation buttons */}
-            <div className="hidden md:block">
-              <button
-                onClick={() => handleStep("prev")}
-                aria-label="Previous recommendation"
-                className="absolute -left-24 top-1/2 -translate-y-1/2 p-4 rounded-full liquid-glass-pill hover:bg-primary hover:text-white transition-all duration-300 hover:scale-110 active:scale-95"
+        <div className="max-w-5xl mx-auto flex items-center justify-between gap-4 md:gap-8 group">
+          {/* Desktop Prev Button */}
+          <button
+            onClick={() => handleStep("prev")}
+            aria-label="Previous recommendation"
+            className="hidden md:flex flex-shrink-0 p-4 rounded-full liquid-glass-pill hover:bg-primary hover:text-white transition-all duration-300 hover:scale-110 active:scale-95 items-center justify-center"
+          >
+            <ChevronLeft className="w-6 h-6 relative z-10" />
+          </button>
+
+          {/* Testimonial Card Wrapper */}
+          <div className="flex-1 min-w-0 relative min-h-[380px] md:min-h-[340px] flex items-stretch">
+            <AnimatePresence initial={false} custom={direction} mode="wait">
+              <motion.div
+                key={activeIdx}
+                custom={direction}
+                variants={slideVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                ref={cardRef}
+                onMouseMove={handleCardMouseMove}
+                className="w-full liquid-glass lg-clip p-8 md:p-14 rounded-[2rem] md:rounded-[3rem] flex flex-col justify-between relative overflow-hidden"
+                style={{ transformStyle: "preserve-3d" }}
               >
-                <ChevronLeft className="w-6 h-6" />
-              </button>
-              <button
-                onClick={() => handleStep("next")}
-                aria-label="Next recommendation"
-                className="absolute -right-24 top-1/2 -translate-y-1/2 p-4 rounded-full liquid-glass-pill hover:bg-primary hover:text-white transition-all duration-300 hover:scale-110 active:scale-95"
-              >
-                <ChevronRight className="w-6 h-6" />
-              </button>
-            </div>
+                {/* Radial Spotlight Overlay */}
+                <div
+                  className="absolute inset-0 opacity-100 transition-opacity duration-300 pointer-events-none"
+                  style={{
+                    background: `radial-gradient(500px circle at ${mousePos.x}px ${mousePos.y}px, rgba(32, 178, 166, 0.07), transparent 80%)`,
+                  }}
+                />
 
-            {/* Testimonial Card */}
-            <div className="relative min-h-[380px] md:min-h-[340px] flex items-stretch">
-              <AnimatePresence initial={false} custom={direction} mode="wait">
-                <motion.div
-                  key={activeIdx}
-                  custom={direction}
-                  variants={slideVariants}
-                  initial="enter"
-                  animate="center"
-                  exit="exit"
-                  ref={cardRef}
-                  onMouseMove={handleCardMouseMove}
-                  className="w-full liquid-glass lg-clip p-8 md:p-14 rounded-[2rem] md:rounded-[3rem] flex flex-col justify-between relative overflow-hidden"
-                  style={{ transformStyle: "preserve-3d" }}
-                >
-                  {/* Radial Spotlight Overlay */}
-                  <div
-                    className="absolute inset-0 opacity-100 transition-opacity duration-300 pointer-events-none"
-                    style={{
-                      background: `radial-gradient(500px circle at ${mousePos.x}px ${mousePos.y}px, rgba(32, 178, 166, 0.07), transparent 80%)`,
-                    }}
-                  />
+                {/* Ambient Glowing Quote Icon */}
+                <div className="absolute top-6 right-8 text-primary/10 select-none pointer-events-none group-hover:scale-105 group-hover:text-primary/15 transition-all duration-700">
+                  <Quote className="w-24 h-24 md:w-32 md:h-32 rotate-180" />
+                </div>
 
-                  {/* Ambient Glowing Quote Icon */}
-                  <div className="absolute top-6 right-8 text-primary/10 select-none pointer-events-none group-hover:scale-105 group-hover:text-primary/15 transition-all duration-700">
-                    <Quote className="w-24 h-24 md:w-32 md:h-32 rotate-180" />
-                  </div>
-
-                  {/* Top Quote Icon Container */}
-                  <div 
-                    className="absolute -top-6 left-10 w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-primary flex items-center justify-center shadow-lg shadow-primary/20 rotate-3 group-hover:rotate-0 transition-transform duration-500"
-                    style={{ transform: "translateZ(30px)" }}
-                  >
-                    <Quote className="w-6 h-6 text-primary-foreground" />
-                  </div>
-
-                  {/* Quote Body */}
-                  <blockquote 
-                    className="text-base md:text-xl font-medium leading-relaxed mt-4 mb-8 text-foreground/90 italic"
-                    style={{ transform: "translateZ(10px)" }}
-                  >
+                {/* Quote Content */}
+                <div className="relative z-10" style={{ transform: "translateZ(40px)" }}>
+                  <p className="text-lg md:text-xl text-foreground/90 font-medium leading-relaxed italic">
                     "{testimonials[activeIdx].quote}"
-                  </blockquote>
+                  </p>
+                </div>
 
-                  {/* Author Meta Details + Fixed Avatar */}
-                  <div className="flex items-center gap-4 border-t border-white/5 pt-6 mt-auto">
-                    <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-primary/40 shadow-lg shadow-primary/10 group-hover:border-primary transition-colors duration-500">
-                      <img
-                        src={testimonials[activeIdx].avatar}
-                        alt={testimonials[activeIdx].author}
-                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                      />
-                    </div>
-                    <div>
-                      <div className="font-bold text-lg md:text-xl text-foreground">
-                        {testimonials[activeIdx].author}
-                      </div>
-                      <div className="text-xs md:text-sm font-bold text-primary uppercase tracking-wider mt-0.5">
-                        {testimonials[activeIdx].role}
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-            </div>
-
-            {/* Pagination Controls */}
-            <div className="flex items-center justify-center gap-3 mt-10">
-              <button
-                className="md:hidden p-2 text-muted-foreground hover:text-primary transition-colors"
-                onClick={() => handleStep("prev")}
-                aria-label="Previous recommendation"
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </button>
-
-              <div className="flex gap-2.5 px-4 py-2 liquid-glass-pill rounded-full">
-                {testimonials.map((_, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => {
-                      setDirection(idx > activeIdx ? 1 : -1);
-                      setActiveIdx(idx);
-                    }}
-                    aria-label={`Go to slide ${idx + 1}`}
-                    className={`h-2.5 rounded-full transition-all duration-500 focus:outline-none ${
-                      idx === activeIdx
-                        ? "w-10 bg-primary shadow-md shadow-primary/20"
-                        : "w-2.5 bg-muted-foreground/30 hover:bg-muted-foreground/50"
-                    }`}
+                {/* Author Info */}
+                <div
+                  className="flex items-center gap-4 mt-8 pt-6 border-t border-white/5 relative z-10"
+                  style={{ transform: "translateZ(30px)" }}
+                >
+                  <img
+                    src={testimonials[activeIdx].avatar}
+                    alt={testimonials[activeIdx].author}
+                    className="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover border-2 border-primary/30"
                   />
-                ))}
-              </div>
-
-              <button
-                className="md:hidden p-2 text-muted-foreground hover:text-primary transition-colors"
-                onClick={() => handleStep("next")}
-                aria-label="Next recommendation"
-              >
-                <ChevronRight className="w-5 h-5" />
-              </button>
-            </div>
-
+                  <div>
+                    <h4 className="font-bold text-foreground text-base md:text-lg">
+                      {testimonials[activeIdx].author}
+                    </h4>
+                    <p className="text-xs md:text-sm text-primary font-semibold tracking-wider uppercase mt-0.5">
+                      {testimonials[activeIdx].role}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            </AnimatePresence>
           </div>
+
+          {/* Desktop Next Button */}
+          <button
+            onClick={() => handleStep("next")}
+            aria-label="Next recommendation"
+            className="hidden md:flex flex-shrink-0 p-4 rounded-full liquid-glass-pill hover:bg-primary hover:text-white transition-all duration-300 hover:scale-110 active:scale-95 items-center justify-center"
+          >
+            <ChevronRight className="w-6 h-6 relative z-10" />
+          </button>
+        </div>
+
+        {/* Pagination Controls */}
+        <div className="flex items-center justify-center gap-3 mt-10">
+          <button
+            className="md:hidden p-2 text-muted-foreground hover:text-primary transition-colors"
+            onClick={() => handleStep("prev")}
+            aria-label="Previous recommendation"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+
+          <div className="flex gap-2.5 px-4 py-2 liquid-glass-pill rounded-full">
+            {testimonials.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => {
+                  setDirection(idx > activeIdx ? 1 : -1);
+                  setActiveIdx(idx);
+                }}
+                aria-label={`Go to slide ${idx + 1}`}
+                className={`h-2.5 rounded-full transition-all duration-500 focus:outline-none ${
+                  idx === activeIdx
+                    ? "w-10 bg-primary shadow-md shadow-primary/20"
+                    : "w-2.5 bg-muted-foreground/30 hover:bg-muted-foreground/50"
+                }`}
+              />
+            ))}
+          </div>
+
+          <button
+            className="md:hidden p-2 text-muted-foreground hover:text-primary transition-colors"
+            onClick={() => handleStep("next")}
+            aria-label="Next recommendation"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
         </div>
       </div>
     </section>
