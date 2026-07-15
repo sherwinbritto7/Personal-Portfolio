@@ -25,8 +25,12 @@ export const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Logo & Copyright */}
           <div className="text-center md:text-left">
-            <a href="#" className="text-xl font-bold tracking-tight">
-              Sherwin<span className="text-primary">.</span>
+            <a href="#" className="inline-block">
+              <img
+                src="/logo.png"
+                alt="Sherwin."
+                className="h-7 md:h-10 w-auto object-contain transition-transform duration-300 hover:scale-105"
+              />
             </a>
             <p className="text-sm text-muted-foreground mt-2">
               © {currentYear} Sherwin Britto. All rights reserved.

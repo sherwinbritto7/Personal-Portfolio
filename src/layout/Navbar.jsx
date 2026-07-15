@@ -108,15 +108,15 @@ export const Navbar = () => {
     <motion.div
       className={`fixed top-0 left-0 right-0 z-50 flex justify-center w-full`}
       animate={{
-        paddingTop: isScrolled || isMobileMenuOpen || isMobile ? 8 : 0,
-        paddingLeft: isScrolled || isMobileMenuOpen || isMobile ? 16 : 0,
-        paddingRight: isScrolled || isMobileMenuOpen || isMobile ? 16 : 0,
+        paddingTop: 8,
+        paddingLeft: 16,
+        paddingRight: 16,
       }}
       transition={{ duration: 0.45, ease: [0.25, 0.46, 0.45, 0.94] }}
     >
       <motion.header
         animate={{
-          borderRadius: isScrolled || isMobile ? 24 : 0,
+          borderRadius: 24,
           maxWidth: isScrolled || isMobile ? 896 : 1280,
           paddingTop: isScrolled || isMobile ? 12 : 24,
           paddingBottom: isScrolled || isMobile ? 12 : 24,
@@ -132,17 +132,12 @@ export const Navbar = () => {
         <nav className="flex flex-col gap-4 w-full">
           <div className="flex items-center justify-between w-full">
             {/* Logo */}
-            <a
-              href="#"
-              className="group text-xl font-bold tracking-tight text-foreground flex items-center gap-0.5"
-            >
-              <span className="bg-gradient-to-r from-foreground to-foreground group-hover:from-primary group-hover:to-primary bg-clip-text text-transparent transition-all duration-500">
-                Sherwin
-              </span>
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-40 transition-all duration-500 group-hover:scale-150" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary group-hover:shadow-[0_0_10px_var(--color-primary)] transition-all duration-500" />
-              </span>
+            <a href="#" className="flex items-center">
+              <img
+                src="/logo.png"
+                alt="Sherwin."
+                className="h-7 md:h-9 w-auto object-contain transition-transform duration-300 hover:scale-105"
+              />
             </a>
 
             {/* Desktop Nav */}
