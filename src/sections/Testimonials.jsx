@@ -158,7 +158,7 @@ export const Testimonials = () => {
                 exit="exit"
                 ref={cardRef}
                 onMouseMove={handleCardMouseMove}
-                className="w-full liquid-glass lg-clip p-8 md:p-14 rounded-[2rem] md:rounded-[3rem] flex flex-col justify-between relative overflow-hidden"
+                className="w-full liquid-glass lg-clip p-5 sm:p-8 md:p-14 rounded-[2rem] md:rounded-[3rem] flex flex-col justify-between relative overflow-hidden"
                 style={{ transformStyle: "preserve-3d" }}
               >
                 {/* Radial Spotlight Overlay */}
@@ -171,7 +171,7 @@ export const Testimonials = () => {
 
                 {/* Ambient Glowing Quote Icon */}
                 <div className="absolute top-6 right-8 text-primary/10 select-none pointer-events-none group-hover:scale-105 group-hover:text-primary/15 transition-all duration-700">
-                  <Quote className="w-24 h-24 md:w-32 md:h-32 rotate-180" />
+                  <Quote className="w-16 h-16 md:w-32 md:h-32 rotate-180" />
                 </div>
 
                 {/* Quote Content */}

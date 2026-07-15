@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight, Github, Sparkles } from "lucide-react";
+import { ArrowUpRight, Sparkles } from "lucide-react";
 
 const projects = [
   {
@@ -137,8 +137,8 @@ export const Projects = () => {
                   </span>
                 </div>
 
-                {/* Dual Floating CTA Links on Hover */}
-                <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                {/* Floating CTA Link on Hover */}
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <a
                     href={project.link}
                     target="_blank"
@@ -148,18 +148,6 @@ export const Projects = () => {
                     Live Demo
                     <ArrowUpRight className="w-4 h-4" />
                   </a>
-
-                  {project.github && (
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-4 py-2.5 rounded-full glass bg-white/10 hover:bg-white/20 text-white text-xs font-semibold hover:scale-105 transition-all duration-300"
-                    >
-                      Code
-                      <Github className="w-4 h-4" />
-                    </a>
-                  )}
                 </div>
               </div>
 
@@ -199,6 +187,19 @@ export const Projects = () => {
                       {tag}
                     </span>
                   ))}
+                </div>
+
+                {/* Mobile/Tablet CTA Links (Visible when not hovered/always on mobile) */}
+                <div className="flex items-center pt-2 md:hidden">
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-white text-xs font-semibold shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all duration-300"
+                  >
+                    Live Demo
+                    <ArrowUpRight className="w-4 h-4" />
+                  </a>
                 </div>
               </div>
             </motion.div>

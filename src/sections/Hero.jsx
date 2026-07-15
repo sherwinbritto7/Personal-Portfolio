@@ -158,7 +158,7 @@ export const Hero = () => {
 
             {/* Headline */}
             <motion.div variants={itemVariants} className="space-y-4">
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
                 Building <span className="text-primary glow-text">modern</span>
                 <br />
                 web experiences with
@@ -227,24 +227,17 @@ export const Hero = () => {
             <div className="relative max-w-md w-full" style={{ perspective: "1000px" }}>
              
 
-              <motion.div
-                ref={cardRef}
-                onMouseMove={handleCardMouseMove}
-                onMouseLeave={handleCardMouseLeave}
-                animate={{ rotateX, rotateY }}
-                transition={{ type: "spring", stiffness: 150, damping: 20 }}
-                style={{ transformStyle: "preserve-3d" }}
-                className="relative liquid-glass rounded-3xl p-2.5 cursor-pointer group shadow-2xl hover:border-primary/30 transition-colors duration-300"
+              <div
+                className="relative liquid-glass rounded-3xl p-2.5 cursor-default group shadow-2xl hover:border-primary/30 transition-colors duration-300"
               >
-                {/* 3D Floating Profile Image */}
-                <div style={{ transform: "translateZ(30px)", transformStyle: "preserve-3d" }} className="overflow-hidden rounded-2xl">
+                <div className="overflow-hidden rounded-2xl">
                   <img
                     src="/profile.png"
                     alt="Sherwin Britto"
-                    className="w-full aspect-[4/5] object-cover rounded-2xl transform transition-transform duration-500 group-hover:scale-[1.02]"
+                    className="w-full aspect-[4/5] object-cover rounded-2xl"
                   />
                 </div>
-              </motion.div>
+              </div>
             </div>
           </div>
         </div>

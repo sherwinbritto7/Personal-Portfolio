@@ -1,5 +1,27 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Briefcase, MapPin, Calendar, Sparkles, ExternalLink } from "lucide-react";
+
+const CompanyLogo = ({ logo, logoColor, company }) => {
+  const [hasError, setHasError] = useState(false);
+  const isImage = logo && (logo.startsWith("http") || logo.startsWith("/")) && !hasError;
+  const fallbackText = company ? company.charAt(0) : "C";
+
+  return (
+    <div className={`flex-shrink-0 w-14 h-14 rounded-2xl ${isImage ? "bg-white/10 border border-white/20 p-1" : `bg-gradient-to-br ${logoColor}`} flex items-center justify-center shadow-lg text-white font-bold text-lg select-none overflow-hidden`}>
+      {isImage ? (
+        <img
+          src={logo}
+          alt={company}
+          onError={() => setHasError(true)}
+          className="w-full h-full object-contain rounded-xl"
+        />
+      ) : (
+        fallbackText
+      )}
+    </div>
+  );
+};
 
 const experiences = [
   {
@@ -10,7 +32,7 @@ const experiences = [
     type: "Full-time",
     location: "Mumbai, Maharashtra, India",
     workMode: "On-site",
-    logo: "DI",
+    logo: "https://destinoinfotech.com/logo.png",
     logoColor: "from-blue-500 to-cyan-500",
     description:
       "Building and maintaining modern web applications as a full-time Web Developer. Working on responsive UIs, integrating APIs, and collaborating with the product and design teams to deliver high-quality frontend solutions.",
@@ -87,7 +109,7 @@ export const Experience = () => {
         <div className="max-w-3xl mx-auto">
           {/* Vertical line */}
           <div className="relative">
-            <div className="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-primary/60 via-primary/20 to-transparent" />
+            <div className="absolute left-4 md:left-6 top-0 bottom-0 w-px bg-gradient-to-b from-primary/60 via-primary/20 to-transparent" />
 
             <motion.div
               variants={containerVariants}
@@ -100,10 +122,10 @@ export const Experience = () => {
                 <motion.div
                   key={idx}
                   variants={itemVariants}
-                  className="relative pl-16"
+                  className="relative pl-8 md:pl-16"
                 >
                   {/* Timeline dot */}
-                  <div className="absolute left-4 top-6 w-5 h-5 -translate-x-1/2">
+                  <div className="absolute left-4 md:left-6 top-6 w-4 h-4 md:w-5 md:h-5 -translate-x-1/2">
                     <span className="absolute inset-0 rounded-full bg-primary" />
                     {exp.current && (
                       <span className="absolute inset-0 rounded-full bg-primary animate-ping opacity-50" />
@@ -111,13 +133,11 @@ export const Experience = () => {
                   </div>
 
                   {/* Card */}
-                  <div className="lg-card rounded-3xl p-6 md:p-8 group hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300">
+                  <div className="lg-card rounded-3xl p-5 md:p-8 group hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300">
                     <div className="flex flex-col sm:flex-row sm:items-start gap-5">
 
                       {/* Company Logo */}
-                      <div className={`flex-shrink-0 w-14 h-14 rounded-2xl bg-gradient-to-br ${exp.logoColor} flex items-center justify-center shadow-lg text-white font-bold text-lg select-none`}>
-                        {exp.logo}
-                      </div>
+                      <CompanyLogo logo={exp.logo} logoColor={exp.logoColor} company={exp.company} />
 
                       {/* Main Content */}
                       <div className="flex-1 min-w-0 space-y-3">
@@ -196,8 +216,8 @@ export const Experience = () => {
               ))}
 
               {/* "More coming soon" placeholder */}
-              <motion.div variants={itemVariants} className="relative pl-16">
-                <div className="absolute left-4 top-5 w-5 h-5 -translate-x-1/2 rounded-full border-2 border-dashed border-primary/30" />
+              <motion.div variants={itemVariants} className="relative pl-8 md:pl-16">
+                <div className="absolute left-4 md:left-6 top-5 w-4 h-4 md:w-5 md:h-5 -translate-x-1/2 rounded-full border-2 border-dashed border-primary/30" />
                 <div className="flex items-center gap-3 py-3">
                   <Briefcase className="w-4 h-4 text-muted-foreground/40" />
                   <p className="text-sm text-muted-foreground/50 italic">

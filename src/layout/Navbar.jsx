@@ -15,6 +15,16 @@ export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -61,30 +71,54 @@ export const Navbar = () => {
     };
   }, []);
 
+  const handleMobileLinkClick = (e, href) => {
+    e.preventDefault();
+    setIsMobileMenuOpen(false);
+    
+    const targetId = href.slice(1);
+    const element = targetId ? document.getElementById(targetId) : null;
+    
+    if (element) {
+      setTimeout(() => {
+        const NAVBAR_OFFSET = 80; // px
+        const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+        const offsetPosition = elementPosition - NAVBAR_OFFSET;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
+      }, 300);
+    } else if (href === "#") {
+      setTimeout(() => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      }, 300);
+    }
+  };
+
   return (
     <motion.div
-      layout
       className={`fixed top-0 left-0 right-0 z-50 flex justify-center w-full`}
       animate={{
-        paddingTop: isScrolled || isMobileMenuOpen ? 8 : 0,
-        paddingLeft: isScrolled || isMobileMenuOpen ? 16 : 0,
-        paddingRight: isScrolled || isMobileMenuOpen ? 16 : 0,
+        paddingTop: isScrolled || isMobileMenuOpen || isMobile ? 8 : 0,
+        paddingLeft: isScrolled || isMobileMenuOpen || isMobile ? 16 : 0,
+        paddingRight: isScrolled || isMobileMenuOpen || isMobile ? 16 : 0,
       }}
       transition={{ duration: 0.45, ease: [0.25, 0.46, 0.45, 0.94] }}
     >
       <motion.header
-        layout
         animate={{
-          borderRadius: isScrolled
-            ? isMobileMenuOpen ? 24 : 9999
-            : isMobileMenuOpen ? 24 : 0,
-          maxWidth: isScrolled ? 896 : 1280,
-          paddingTop: isScrolled ? 12 : 24,
-          paddingBottom: isScrolled ? 12 : 24,
+          borderRadius: isScrolled || isMobile ? 24 : 0,
+          maxWidth: isScrolled || isMobile ? 896 : 1280,
+          paddingTop: isScrolled || isMobile ? 12 : 24,
+          paddingBottom: isScrolled || isMobile ? 12 : 24,
         }}
         transition={{ duration: 0.45, ease: [0.25, 0.46, 0.45, 0.94] }}
         className={`w-full ${
-          isScrolled || isMobileMenuOpen
+          isScrolled || isMobileMenuOpen || isMobile
             ? "liquid-glass px-6 md:px-8"
             : "bg-transparent px-6 md:px-12"
         }`}
@@ -176,17 +210,14 @@ export const Navbar = () => {
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
+                transition={{ duration: 0.45, ease: [0.25, 0.46, 0.45, 0.94] }}
                 className="md:hidden overflow-hidden w-full"
               >
                 <div className="flex flex-col gap-3 pt-2 pb-1 border-t border-white/5 mt-2">
                   {navLinks.map((link, index) => {
                     const isActive = activeSection === link.href.slice(1);
                     return (
-                      <motion.a
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: index * 0.05 + 0.05 }}
+                      <a
                         href={link.href}
                         key={index}
                         className={`text-base font-semibold py-2.5 px-3 rounded-xl transition-all duration-300 flex items-center justify-between hover:bg-white/5 ${
@@ -194,30 +225,25 @@ export const Navbar = () => {
                             ? "text-primary bg-primary/5"
                             : "text-muted-foreground hover:text-foreground"
                         }`}
-                        onClick={() => setIsMobileMenuOpen(false)}
+                        onClick={(e) => handleMobileLinkClick(e, link.href)}
                       >
                         <span>{link.label}</span>
                         {isActive && (
                           <span className="w-1.5 h-1.5 bg-primary rounded-full" />
                         )}
-                      </motion.a>
+                      </a>
                     );
                   })}
 
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: navLinks.length * 0.05 + 0.05 }}
-                    className="pt-2 w-full flex"
-                  >
+                  <div className="pt-2 w-full flex">
                     <a
                       href="#contact"
                       className="w-full"
-                      onClick={() => setIsMobileMenuOpen(false)}
+                      onClick={(e) => handleMobileLinkClick(e, "#contact")}
                     >
                       <Button classname="w-full">Contact Me</Button>
                     </a>
-                  </motion.div>
+                  </div>
                 </div>
               </motion.div>
             )}

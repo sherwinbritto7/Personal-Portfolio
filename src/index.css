@@ -28,6 +28,10 @@
     scroll-behavior: smooth;
   }
 
+  section[id] {
+    scroll-margin-top: 6.5rem; /* Offset for the fixed navbar height */
+  }
+
   button {
     cursor: pointer;
   }

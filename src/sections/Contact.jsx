@@ -191,7 +191,7 @@ export const Contact = () => {
         <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto items-stretch">
           
           {/* Left Column - Contact Form */}
-          <div className="liquid-glass lg-clip p-8 rounded-3xl relative flex flex-col justify-between">
+          <div className="liquid-glass lg-clip p-5 md:p-8 rounded-3xl relative flex flex-col justify-between">
             <form className="space-y-6" onSubmit={handleSubmit} noValidate>
               
               {/* Name Field */}
@@ -343,7 +343,7 @@ export const Contact = () => {
 
           {/* Right Column - Contact Info & Availability */}
           <div className="space-y-6 flex flex-col justify-between">
-            <div className="liquid-glass lg-clip rounded-3xl p-8 space-y-6">
+            <div className="liquid-glass lg-clip rounded-3xl p-5 md:p-8 space-y-6">
               <h3 className="text-xl font-bold text-foreground">
                 Contact Information
               </h3>
@@ -364,7 +364,7 @@ export const Contact = () => {
                       <div className="text-xs text-muted-foreground font-semibold uppercase tracking-wider">
                         {item.label}
                       </div>
-                      <div className="font-bold text-foreground mt-0.5 group-hover:text-primary transition-colors duration-300">
+                      <div className="font-bold text-foreground mt-0.5 group-hover:text-primary transition-colors duration-300 break-all text-sm sm:text-base">
                         {item.value}
                       </div>
                     </div>
@@ -374,7 +374,7 @@ export const Contact = () => {
             </div>
 
             {/* Availability Banner */}
-            <div className="liquid-glass lg-clip rounded-3xl p-8 space-y-3 relative overflow-hidden group hover:border-primary/40 transition-all duration-300">
+            <div className="liquid-glass lg-clip rounded-3xl p-5 md:p-8 space-y-3 relative overflow-hidden group hover:border-primary/40 transition-all duration-300">
               <div className="flex items-center gap-3">
                 <span className="relative flex h-3.5 w-3.5">
                   <span className="animate-ripple absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />

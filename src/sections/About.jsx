@@ -222,7 +222,7 @@ export const About = () => {
                         key={idx}
                         variants={itemVariants}
                         whileHover={{ y: -6, scale: 1.01 }}
-                        className="group relative lg-card p-5 sm:p-8 rounded-2xl hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300"
+                        className="group relative lg-card p-4 sm:p-8 rounded-2xl hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300"
                       >
                         {/* Glowing Background Overlay */}
                         <div
@@ -233,14 +233,14 @@ export const About = () => {
                         />
 
                         {/* Icon Container */}
-                        <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6 transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground group-hover:scale-110">
-                          <item.icon className="w-6 h-6 text-primary group-hover:text-white transition-colors duration-300" />
+                        <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 sm:mb-6 transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground group-hover:scale-110">
+                          <item.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary group-hover:text-white transition-colors duration-300" />
                         </div>
 
-                        <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors duration-300">
+                        <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 group-hover:text-primary transition-colors duration-300">
                           {item.title}
                         </h3>
-                        <p className="text-sm text-muted-foreground leading-relaxed">
+                        <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
                           {item.description}
                         </p>
                       </motion.div>
@@ -259,24 +259,24 @@ export const About = () => {
                       <motion.div
                         key={cat.id}
                         variants={itemVariants}
-                        className="lg-card rounded-2xl p-6 relative"
+                        className="lg-card rounded-2xl p-4 sm:p-6 relative"
                       >
                         {/* Title Header with Category Icon */}
-                        <div className="flex items-center gap-3 mb-4">
-                          <div className="p-2 rounded-lg bg-primary/10 text-primary">
-                            <cat.icon className="w-5 h-5" />
+                        <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+                          <div className="p-1.5 sm:p-2 rounded-lg bg-primary/10 text-primary">
+                            <cat.icon className="w-4 h-4 sm:w-5 sm:h-5" />
                           </div>
-                          <h3 className="text-lg font-bold text-foreground">
+                          <h3 className="text-base sm:text-lg font-bold text-foreground">
                             {cat.title}
                           </h3>
                         </div>
 
                         {/* Skills Bubble Grid */}
-                        <div className="flex flex-wrap gap-2.5">
+                        <div className="flex flex-wrap gap-2 sm:gap-2.5">
                           {cat.skills.map((skill, sIdx) => (
                             <div
                               key={sIdx}
-                              className="group relative cursor-default px-4 py-2 rounded-xl lg-badge text-sm font-semibold text-muted-foreground hover:text-primary hover:border-primary/40 hover:scale-105 transition-all duration-300"
+                              className="group relative cursor-default px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl lg-badge text-xs sm:text-sm font-semibold text-muted-foreground hover:text-primary hover:border-primary/40 hover:scale-105 transition-all duration-300"
                             >
                               <span>{skill.name}</span>
                               
