@@ -183,7 +183,7 @@ export const Hero = () => {
                 </Button>
               </a>
               <a
-                href="/Sherwin_Britto_CV.pdf"
+                href="/Sherwin_Britto_Resume.pdf"
                 download="Sherwin_Britto_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
