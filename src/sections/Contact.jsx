@@ -191,7 +191,10 @@ export const Contact = () => {
         <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto items-stretch">
           
           {/* Left Column - Contact Form */}
-          <div className="liquid-glass lg-clip p-5 md:p-8 rounded-3xl relative flex flex-col justify-between">
+          <div className="liquid-glass lg-clip p-5 md:p-8 rounded-3xl relative flex flex-col justify-center space-y-6">
+            <h3 className="text-xl font-bold text-foreground">
+              Send a Message
+            </h3>
             <form className="space-y-6" onSubmit={handleSubmit} noValidate>
               
               {/* Name Field */}
@@ -385,8 +388,8 @@ export const Contact = () => {
                 </span>
               </div>
               <p className="text-muted-foreground text-sm leading-relaxed">
-                I’m currently open to new roles, software engineering internships, 
-                and freelance work. Let's create high-quality frontend environments together!
+                I am actively seeking software engineering roles, internships, and freelance
+                opportunities. Let's connect and build something impactful together!
               </p>
               
               {/* Dynamic corner ornament */}

@@ -8,40 +8,30 @@ const testimonials = [
       "Sherwin's work on ZenAi demonstrates a sophisticated blend of AI integration and user-centric design. The seamless automation and intelligent features he implemented show a high level of technical maturity and innovative thinking.",
     author: "Project Mentor",
     role: "Senior Software Engineer",
-    avatar:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop",
   },
   {
     quote:
       "Sherwin did an impressive job building ZenAura, an event management platform. The interface is intuitive, the QR ticket system works smoothly, and the project reflects his attention to detail and strong frontend skills.",
     author: "Project Mentor",
     role: "Web Developer",
-    avatar:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop",
   },
   {
     quote:
       "Sherwin is highly dedicated and consistently delivers clean, well-structured code. He approaches problems thoughtfully and is always eager to learn and improve.",
     author: "Project Teammate",
     role: "Web Developer",
-    avatar:
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop",
   },
   {
     quote:
       "Working with Sherwin was a great experience. He communicates clearly, takes feedback positively, and puts in real effort to build polished user interfaces.",
     author: "Peer Developer",
     role: "Frontend Developer",
-    avatar:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop",
   },
   {
     quote:
       "Sherwin shows strong attention to detail and a genuine passion for web development. His willingness to learn and improve stands out.",
     author: "Mentor",
     role: "Software Engineer",
-    avatar:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop",
   },
 ];
 
@@ -147,7 +137,7 @@ export const Testimonials = () => {
           </button>
 
           {/* Testimonial Card Wrapper */}
-          <div className="flex-1 min-w-0 relative min-h-[380px] md:min-h-[340px] flex items-stretch">
+          <div className="flex-1 min-w-0 relative min-h-[300px] sm:min-h-[340px] flex items-stretch">
             <AnimatePresence initial={false} custom={direction} mode="wait">
               <motion.div
                 key={activeIdx}
@@ -158,7 +148,7 @@ export const Testimonials = () => {
                 exit="exit"
                 ref={cardRef}
                 onMouseMove={handleCardMouseMove}
-                className="w-full liquid-glass lg-clip p-5 sm:p-8 md:p-14 rounded-[2rem] md:rounded-[3rem] flex flex-col justify-between relative overflow-hidden"
+                className="w-full liquid-glass lg-clip p-4 sm:p-8 md:p-14 rounded-2xl sm:rounded-[2rem] md:rounded-[3rem] flex flex-col justify-between relative overflow-hidden"
                 style={{ transformStyle: "preserve-3d" }}
               >
                 {/* Radial Spotlight Overlay */}
@@ -170,32 +160,45 @@ export const Testimonials = () => {
                 />
 
                 {/* Ambient Glowing Quote Icon */}
-                <div className="absolute top-6 right-8 text-primary/10 select-none pointer-events-none group-hover:scale-105 group-hover:text-primary/15 transition-all duration-700">
-                  <Quote className="w-16 h-16 md:w-32 md:h-32 rotate-180" />
+                <div className="absolute top-4 right-6 text-primary/10 select-none pointer-events-none group-hover:scale-105 group-hover:text-primary/15 transition-all duration-700">
+                  <Quote className="w-12 h-12 md:w-32 md:h-32 rotate-180" />
                 </div>
 
                 {/* Quote Content */}
-                <div className="relative z-10" style={{ transform: "translateZ(40px)" }}>
-                  <p className="text-lg md:text-xl text-foreground/90 font-medium leading-relaxed italic">
+                <div className="relative z-10 space-y-3 md:space-y-4" style={{ transform: "translateZ(40px)" }}>
+                  <div className="flex gap-0.5 md:gap-1 text-primary">
+                    {[...Array(5)].map((_, i) => (
+                      <svg
+                        key={i}
+                        className="w-3.5 h-3.5 md:w-4 md:h-4 fill-current"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))}
+                  </div>
+                  <p className="text-sm sm:text-lg md:text-xl text-foreground/90 font-medium leading-relaxed italic">
                     "{testimonials[activeIdx].quote}"
                   </p>
                 </div>
 
                 {/* Author Info */}
                 <div
-                  className="flex items-center gap-4 mt-8 pt-6 border-t border-white/5 relative z-10"
+                  className="flex items-center gap-3 md:gap-4 mt-6 pt-4 md:mt-8 md:pt-6 border-t border-white/5 relative z-10"
                   style={{ transform: "translateZ(30px)" }}
                 >
-                  <img
-                    src={testimonials[activeIdx].avatar}
-                    alt={testimonials[activeIdx].author}
-                    className="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover border-2 border-primary/30"
-                  />
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center bg-gradient-to-br from-primary/20 to-primary/5 text-primary border border-primary/20 font-bold text-xs sm:text-sm md:text-base select-none shadow-sm shadow-primary/10 flex-shrink-0">
+                    {testimonials[activeIdx].author
+                      .split(" ")
+                      .map((n) => n[0])
+                      .join("")}
+                  </div>
                   <div>
-                    <h4 className="font-bold text-foreground text-base md:text-lg">
+                    <h4 className="font-bold text-foreground text-sm sm:text-base md:text-lg">
                       {testimonials[activeIdx].author}
                     </h4>
-                    <p className="text-xs md:text-sm text-primary font-semibold tracking-wider uppercase mt-0.5">
+                    <p className="text-[10px] sm:text-xs md:text-sm text-primary font-semibold tracking-wider uppercase mt-0.5">
                       {testimonials[activeIdx].role}
                     </p>
                   </div>

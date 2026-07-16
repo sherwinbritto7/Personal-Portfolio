@@ -109,14 +109,14 @@ export const Projects = () => {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 lg:gap-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-5 md:gap-8 lg:gap-10">
           {projects.map((project, idx) => (
             <motion.div
               key={project.title}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: idx * 0.07 }}
-              className="group relative lg-card rounded-3xl overflow-hidden hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/8 transition-all duration-500"
+              className="group relative lg-card rounded-2xl md:rounded-3xl overflow-hidden hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/8 transition-all duration-500"
             >
               {/* Image Section */}
               <div className="relative overflow-hidden aspect-video">
@@ -131,8 +131,8 @@ export const Projects = () => {
                 <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
                 {/* Category Ribbon */}
-                <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1 rounded-lg lg-badge text-[10px] uppercase font-bold tracking-wider text-primary">
+                <div className="absolute top-3 left-3 md:top-4 md:left-4">
+                  <span className="px-2.5 py-0.5 md:px-3 md:py-1 rounded-md md:rounded-lg lg-badge text-[9px] md:text-[10px] uppercase font-bold tracking-wider text-primary">
                     {project.category}
                   </span>
                 </div>
@@ -152,9 +152,9 @@ export const Projects = () => {
               </div>
 
               {/* Content Section */}
-              <div className="p-6 md:p-8 space-y-4">
+              <div className="p-4 sm:p-6 md:p-8 space-y-3 md:space-y-4">
                 <div className="flex items-start justify-between">
-                  <h3 className="text-xl md:text-2xl font-bold group-hover:text-primary transition-colors duration-300">
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold group-hover:text-primary transition-colors duration-300">
                     <a
                       href={project.link}
                       target="_blank"
@@ -170,19 +170,19 @@ export const Projects = () => {
                     aria-label={`Open ${project.title}`}
                     className="p-1 rounded-full text-muted-foreground hover:text-primary transition-colors duration-300"
                   >
-                    <ArrowUpRight className="w-5.5 h-5.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    <ArrowUpRight className="w-5 h-5 sm:w-5.5 sm:h-5.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </a>
                 </div>
 
-                <p className="text-muted-foreground text-sm leading-relaxed">
+                <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed">
                   {project.description}
                 </p>
 
-                <div className="flex flex-wrap gap-2 pt-2">
+                <div className="flex flex-wrap gap-1.5 md:gap-2 pt-1 md:pt-2">
                   {project.tags.map((tag, tagIdx) => (
                     <span
                       key={tagIdx}
-                      className="px-3.5 py-1 rounded-lg lg-badge text-[11px] font-semibold text-muted-foreground group-hover:border-primary/25 group-hover:text-primary/80 transition-all duration-300"
+                      className="px-2 py-0.5 md:px-3.5 md:py-1 rounded-md md:rounded-lg lg-badge text-[10px] md:text-[11px] font-semibold text-muted-foreground group-hover:border-primary/25 group-hover:text-primary/80 transition-all duration-300"
                     >
                       {tag}
                     </span>
@@ -190,15 +190,15 @@ export const Projects = () => {
                 </div>
 
                 {/* Mobile/Tablet CTA Links (Visible when not hovered/always on mobile) */}
-                <div className="flex items-center pt-2 md:hidden">
+                <div className="flex items-center pt-1 md:hidden">
                   <a
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-white text-xs font-semibold shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all duration-300"
+                    className="w-full flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-primary text-white text-xs font-semibold shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all duration-300"
                   >
                     Live Demo
-                    <ArrowUpRight className="w-4 h-4" />
+                    <ArrowUpRight className="w-3.5 h-3.5" />
                   </a>
                 </div>
               </div>
