@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sherwinbritto.vercel.app/sitemap.xml
