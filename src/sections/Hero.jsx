@@ -160,13 +160,9 @@ export const Hero = () => {
             {/* Headline */}
             <motion.div variants={itemVariants} className="space-y-4">
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-                Building <span className="text-primary glow-text">modern</span>
+                Hi, I'm <span className="text-primary glow-text">Sherwin Britto</span>,
                 <br />
-                web experiences with
-                <br />
-                <span className="font-serif italic font-normal text-white">
-                  precision.
-                </span>
+                a <span className="font-serif italic font-normal text-white">Web Developer.</span>
               </h1>
               <p className="text-lg text-muted-foreground max-w-lg leading-relaxed">
                 Hi, I'm Sherwin Britto – a Web Developer who builds modern,
