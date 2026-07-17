@@ -1,6 +1,6 @@
 import { Button } from "@/components/Button";
 import { Menu, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
@@ -16,6 +16,8 @@ export const Navbar = () => {
   const [activeSection, setActiveSection] = useState("");
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
+
+  const isScrollingRef = useRef(false);
 
   useEffect(() => {
     let lastWidth = window.innerWidth;
@@ -43,10 +45,21 @@ export const Navbar = () => {
   // Scroll-spy: picks the section whose top is closest to (but not past) the viewport top
   useEffect(() => {
     const sectionIds = ["about", "experience", "projects", "feedback"];
-    const NAVBAR_OFFSET = 100; // px offset to account for fixed navbar height
+    const NAVBAR_OFFSET = 120; // px offset (slightly larger than 6.5rem/104px scroll-margin-top) to ensure reliable triggering
 
     const handleScroll = () => {
-      if (window.scrollY < 100) {
+      if (isScrollingRef.current) return;
+
+      // Bottom of page detection
+      if (
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 60
+      ) {
+        setActiveSection("feedback");
+        return;
+      }
+
+      if (window.scrollY < 50) {
         setActiveSection("");
         return;
       }
@@ -76,32 +89,46 @@ export const Navbar = () => {
     };
   }, []);
 
-  const handleMobileLinkClick = (e, href) => {
+  const handleLinkClick = (e, href) => {
     e.preventDefault();
-    setIsMobileMenuOpen(false);
-    
     const targetId = href.slice(1);
+
+    if (targetId && targetId !== "contact") {
+      setActiveSection(targetId);
+    }
+    isScrollingRef.current = true;
+
     const element = targetId ? document.getElementById(targetId) : null;
-    
-    if (element) {
-      setTimeout(() => {
-        const NAVBAR_OFFSET = 80; // px
+
+    const performScroll = () => {
+      if (element) {
+        const NAVBAR_OFFSET = 104; // Matches 6.5rem scroll-margin-top exactly
         const elementPosition = element.getBoundingClientRect().top + window.scrollY;
         const offsetPosition = elementPosition - NAVBAR_OFFSET;
-        
+
         window.scrollTo({
           top: offsetPosition,
-          behavior: "smooth"
+          behavior: "smooth",
         });
-      }, 300);
-    } else if (href === "#") {
-      setTimeout(() => {
+      } else if (href === "#") {
         window.scrollTo({
           top: 0,
-          behavior: "smooth"
+          behavior: "smooth",
         });
-      }, 300);
+      }
+    };
+
+    if (isMobileMenuOpen) {
+      setIsMobileMenuOpen(false);
+      setTimeout(performScroll, 300);
+    } else {
+      performScroll();
     }
+
+    // Re-enable scroll spy after the smooth scroll finishes (typically ~800ms)
+    setTimeout(() => {
+      isScrollingRef.current = false;
+    }, 1000);
   };
 
   return (
@@ -132,7 +159,7 @@ export const Navbar = () => {
         <nav className="flex flex-col gap-4 w-full">
           <div className="flex items-center justify-between w-full">
             {/* Logo */}
-            <a href="#" className="flex items-center">
+            <a href="#" className="flex items-center" onClick={(e) => handleLinkClick(e, "#")}>
               <img
                 src="/logo.png"
                 alt="Sherwin."
@@ -151,6 +178,7 @@ export const Navbar = () => {
                       key={index}
                       onMouseEnter={() => setHoveredIndex(index)}
                       onMouseLeave={() => setHoveredIndex(null)}
+                      onClick={(e) => handleLinkClick(e, link.href)}
                       className={`px-4 py-2 text-sm relative z-10 rounded-full transition-colors duration-300 font-semibold ${
                         isActive
                           ? "text-primary font-bold"
@@ -184,7 +212,7 @@ export const Navbar = () => {
 
             {/* CTA Button */}
             <div className="hidden md:block transition-all duration-300 hover:scale-105 active:scale-95">
-              <a href="#contact">
+              <a href="#contact" onClick={(e) => handleLinkClick(e, "#contact")}>
                 <Button
                   size="sm"
                   classname="hover:shadow-[0_0_20px_color-mix(in_srgb,var(--color-primary)_40%,transparent)]"
@@ -225,7 +253,7 @@ export const Navbar = () => {
                             ? "text-primary bg-primary/5"
                             : "text-muted-foreground hover:text-foreground"
                         }`}
-                        onClick={(e) => handleMobileLinkClick(e, link.href)}
+                        onClick={(e) => handleLinkClick(e, link.href)}
                       >
                         <span>{link.label}</span>
                         {isActive && (
@@ -239,7 +267,7 @@ export const Navbar = () => {
                     <a
                       href="#contact"
                       className="w-full"
-                      onClick={(e) => handleMobileLinkClick(e, "#contact")}
+                      onClick={(e) => handleLinkClick(e, "#contact")}
                     >
                       <Button classname="w-full">Contact Me</Button>
                     </a>
