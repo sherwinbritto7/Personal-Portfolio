@@ -67,7 +67,20 @@
   </head>
 
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- SEO Fallback Links for Non-JS Crawlers (overwritten when React loads) -->
+      <nav style="display:none;">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="https://github.com/sherwinbritto7" rel="noopener noreferrer" target="_blank">GitHub Profile</a></li>
+          <li><a href="https://linkedin.com/in/sherwinb7" rel="noopener noreferrer" target="_blank">LinkedIn Profile</a></li>
+          <li><a href="https://www.instagram.com/sherwinnn.7" rel="noopener noreferrer" target="_blank">Instagram Profile</a></li>
+        </ul>
+      </nav>
+    </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
