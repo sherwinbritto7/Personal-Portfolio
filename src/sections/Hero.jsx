@@ -165,9 +165,9 @@ export const Hero = () => {
                 a <span className="font-serif italic font-normal text-white">Web Developer.</span>
               </h1>
               <p className="text-lg text-muted-foreground max-w-lg leading-relaxed">
-                Hi, I'm Sherwin Britto – a Web Developer who builds modern,
-                responsive, and user-friendly web applications with precision
-                and care, using the latest web technologies.
+                Sherwin Britto is a professional web developer building modern,
+                responsive web applications using React, Tailwind CSS, Node.js,
+                and modern technologies.
               </p>
             </motion.div>
 

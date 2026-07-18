@@ -30,6 +30,7 @@
     />
     <meta property="og:url" content="https://sherwinb.vercel.app/" />
     <meta property="og:image" content="https://sherwinb.vercel.app/profile.png" />
+    <meta property="og:site_name" content="Sherwin Britto" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -40,30 +41,40 @@
     />
     <meta name="twitter:image" content="https://sherwinb.vercel.app/profile.png" />
 
-    <!-- Schema.org JSON-LD Structured Data for Person -->
+    <!-- Schema.org JSON-LD Structured Data for Site Name and Person -->
     <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Sherwin Britto",
-        "url": "https://sherwinb.vercel.app/",
-        "image": "https://sherwinb.vercel.app/profile.png",
-        "jobTitle": "Web Developer",
-        "worksFor": {
-          "@type": "Organization",
-          "name": "Destino Infotech"
+      [
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "Sherwin Britto",
+          "url": "https://sherwinb.vercel.app/"
         },
-        "sameAs": [
-          "https://github.com/sherwinbritto7",
-          "https://linkedin.com/in/sherwinb7",
-          "https://www.instagram.com/sherwinnn.7"
-        ],
-        "description": "Sherwin Britto is a web developer building modern, responsive web applications using React, Tailwind CSS, and Node.js."
-      }
+        {
+          "@context": "https://schema.org",
+          "@type": "Person",
+          "name": "Sherwin Britto",
+          "url": "https://sherwinb.vercel.app/",
+          "image": "https://sherwinb.vercel.app/profile.png",
+          "jobTitle": "Web Developer",
+          "worksFor": {
+            "@type": "Organization",
+            "name": "Destino Infotech"
+          },
+          "sameAs": [
+            "https://github.com/sherwinbritto7",
+            "https://linkedin.com/in/sherwinb7",
+            "https://www.instagram.com/sherwinnn.7"
+          ],
+          "description": "Sherwin Britto is a web developer building modern, responsive web applications using React, Tailwind CSS, and Node.js."
+        }
+      ]
     </script>
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="apple-touch-icon" href="/logo.png" />
   </head>
 
   <body>
