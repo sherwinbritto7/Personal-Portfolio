@@ -72,6 +72,16 @@ const projects = [
     github: "https://github.com/sherwinbritto7/zentask",
     category: "React / Next.js",
   },
+    {
+    title: "MCU Explorer - Marvel Hub",
+    description:
+      "An interactive Marvel Cinematic Universe web app to explore, filter, and track movies & series across all Phases in release or chronological order.",
+    image: "/projects/project8.png",
+    tags: ["React", "Vite", "Tailwind CSS", "Framer Motion"],
+    link: "https://marveluni.vercel.app",
+    github: "https://github.com/sherwinbritto7/marvel",
+    category: "React / Next.js",
+  },
 ];
 
 export const Projects = () => {
