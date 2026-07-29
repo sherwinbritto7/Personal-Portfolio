@@ -20,13 +20,8 @@ export const Navbar = () => {
   const isScrollingRef = useRef(false);
 
   useEffect(() => {
-    let lastWidth = window.innerWidth;
     const handleResize = () => {
-      const currentWidth = window.innerWidth;
-      if (currentWidth !== lastWidth) {
-        setIsMobile(currentWidth < 768);
-        lastWidth = currentWidth;
-      }
+      setIsMobile(window.innerWidth < 768);
     };
     setIsMobile(window.innerWidth < 768);
     window.addEventListener("resize", handleResize);
