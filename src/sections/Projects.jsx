@@ -9,7 +9,6 @@ const projects = [
     image: "/projects/project1.png",
     tags: ["React", "Tailwind CSS", "MongoDB"],
     link: "https://zenresume.vercel.app",
-    github: "https://github.com/sherwinbritto7/zenresume",
     category: "React / Next.js",
   },
   {
@@ -19,7 +18,6 @@ const projects = [
     image: "/projects/project2.png",
     tags: ["Next.js", "Tailwind CSS", "Convex"],
     link: "https://zenaura-events.vercel.app",
-    github: "https://github.com/sherwinbritto7/zenaura",
     category: "Full Stack",
   },
   {
@@ -29,7 +27,6 @@ const projects = [
     image: "/projects/project3.png",
     tags: ["React", "Next.js", "Tailwind CSS", "Framer Motion"],
     link: "https://zenpage-light.vercel.app",
-    github: "https://github.com/sherwinbritto7/zenpage-light",
     category: "SaaS / UI",
   },
   {
@@ -39,7 +36,6 @@ const projects = [
     image: "/projects/project4.png",
     tags: ["Next.js", "Framer Motion", "Interactivity", "Dark Mode"],
     link: "https://zenpage-dark.vercel.app",
-    github: "https://github.com/sherwinbritto7/zenpage-dark",
     category: "SaaS / UI",
   },
   {
@@ -49,7 +45,6 @@ const projects = [
     image: "/projects/project5.png",
     tags: ["PERN Stack", "OpenAI", "Cloudinary", "Clerk Auth"],
     link: "https://zenai.vercel.app",
-    github: "https://github.com/sherwinbritto7/zenai",
     category: "Full Stack",
   },
   {
@@ -59,7 +54,6 @@ const projects = [
     image: "/projects/project6.png",
     tags: ["Next.js", "Supabase", "Firecrawl", "Recharts"],
     link: "https://zentrackpro.vercel.app",
-    github: "https://github.com/sherwinbritto7/zentrack",
     category: "Full Stack",
   },
   {
@@ -69,17 +63,15 @@ const projects = [
     image: "/projects/project7.png",
     tags: ["React Router", "React", "Tailwind CSS", "Zod"],
     link: "https://zentaskpjm.vercel.app",
-    github: "https://github.com/sherwinbritto7/zentask",
     category: "React / Next.js",
   },
-    {
+  {
     title: "MCU Explorer - Marvel Hub",
     description:
       "An interactive Marvel Cinematic Universe web app to explore, filter, and track movies & series across all Phases in release or chronological order.",
     image: "/projects/project8.png",
     tags: ["React", "Vite", "Tailwind CSS", "Framer Motion"],
     link: "https://marveluni.vercel.app",
-    github: "https://github.com/sherwinbritto7/marvel",
     category: "React / Next.js",
   },
 ];
