@@ -74,6 +74,15 @@ const projects = [
     link: "https://marveluni.vercel.app",
     category: "React / Next.js",
   },
+  {
+  title: "3D Brutalist Portfolio",
+  description: "An interactive, high-impact 3D portfolio featuring real-time Three.js mesh manipulation, smooth GSAP parallax scrolling, and brutalist aesthetic engineering.",
+  image: "/projects/project9.png",
+  tags: ["React", "Three.js", "GSAP", "Lenis Scroll", "Vite"],
+  link: "https://sherwin3d.vercel.app",
+  category: "3D / WebGL",
+},
+
 ];
 
 export const Projects = () => {
