@@ -3,6 +3,32 @@ import { ArrowUpRight, Sparkles } from "lucide-react";
 
 const projects = [
   {
+    title: "3D Brutalist Portfolio",
+    description: "An interactive, high-impact 3D portfolio featuring real-time Three.js mesh manipulation, smooth GSAP parallax scrolling, and brutalist aesthetic engineering.",
+    image: "/projects/project9.png",
+    tags: ["React", "Three.js", "GSAP", "Lenis Scroll", "Vite"],
+    link: "https://sherwin3d.vercel.app",
+    category: "3D / WebGL",
+  },
+  {
+    title: "ZenTrack - Price Tracker",
+    description:
+      "A price tracking dashboard monitoring product prices in real-time. Built with Next.js and Supabase, utilizing Firecrawl web scraping.",
+    image: "/projects/project6.png",
+    tags: ["Next.js", "Supabase", "Firecrawl", "Recharts"],
+    link: "https://zentrackpro.vercel.app",
+    category: "Full Stack",
+  },
+  {
+    title: "ZenTask - Project Management",
+    description:
+      "A modern project management tool designed for speed and simplicity. Features a beautifully designed workspace to manage team tasks.",
+    image: "/projects/project7.png",
+    tags: ["React Router", "React", "Tailwind CSS", "Zod"],
+    link: "https://zentaskpjm.vercel.app",
+    category: "React / Next.js",
+  },
+  {
     title: "ZenResume",
     description:
       "A modern resume builder that allows users to create and customize professional resumes with ease.",
@@ -46,25 +72,7 @@ const projects = [
     tags: ["PERN Stack", "OpenAI", "Cloudinary", "Clerk Auth"],
     link: "https://zenai.vercel.app",
     category: "Full Stack",
-  },
-  {
-    title: "ZenTrack - Price Tracker",
-    description:
-      "A price tracking dashboard monitoring product prices in real-time. Built with Next.js and Supabase, utilizing Firecrawl web scraping.",
-    image: "/projects/project6.png",
-    tags: ["Next.js", "Supabase", "Firecrawl", "Recharts"],
-    link: "https://zentrackpro.vercel.app",
-    category: "Full Stack",
-  },
-  {
-    title: "ZenTask - Project Management",
-    description:
-      "A modern project management tool designed for speed and simplicity. Features a beautifully designed workspace to manage team tasks.",
-    image: "/projects/project7.png",
-    tags: ["React Router", "React", "Tailwind CSS", "Zod"],
-    link: "https://zentaskpjm.vercel.app",
-    category: "React / Next.js",
-  },
+  }, 
   {
     title: "MCU Explorer - Marvel Hub",
     description:
@@ -74,15 +82,6 @@ const projects = [
     link: "https://marveluni.vercel.app",
     category: "React / Next.js",
   },
-  {
-  title: "3D Brutalist Portfolio",
-  description: "An interactive, high-impact 3D portfolio featuring real-time Three.js mesh manipulation, smooth GSAP parallax scrolling, and brutalist aesthetic engineering.",
-  image: "/projects/project9.png",
-  tags: ["React", "Three.js", "GSAP", "Lenis Scroll", "Vite"],
-  link: "https://sherwin3d.vercel.app",
-  category: "3D / WebGL",
-},
-
 ];
 
 export const Projects = () => {
