@@ -32,9 +32,9 @@ const projects = [
     title: "Coreventory — Business OS & GST Suite",
     description:
       "All-in-one business operating system for inventory control, automated GST invoicing, digital storefront ordering, and multi-tenant financial reporting.",
-    image: "/projects/coreventory.png",
+    image: "/projects/project10.png",
     tags: ["React 18", "Tailwind CSS", "Firestore", "GST Compliance"],
-    link: "/projects/project10.png",
+    link: "https://coreventory.vercel.app",
     category: "Full Stack",
   },
   {
