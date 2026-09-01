@@ -94,9 +94,9 @@ const getExperienceDuration = (exp) => {
 
 const experiences = [
   {
-    startDate: "2026-02",
+    startDate: "2025-09",
     endDate: null,
-    period: "Feb 2026 – Present",
+    period: "Sep 2025 – Present",
     role: "Web Developer",
     company: "Destino Infotech Pvt Ltd",
     type: "Full-time",
