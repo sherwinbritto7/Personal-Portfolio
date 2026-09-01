@@ -28,6 +28,15 @@ const projects = [
     link: "https://zentaskpjm.vercel.app",
     category: "React / Next.js",
   },
+    {
+    title: "Coreventory — Business OS & GST Suite",
+    description:
+      "All-in-one business operating system for inventory control, automated GST invoicing, digital storefront ordering, and multi-tenant financial reporting.",
+    image: "/projects/coreventory.png",
+    tags: ["React 18", "Tailwind CSS", "Firestore", "GST Compliance"],
+    link: "/projects/project10.png",
+    category: "Full Stack",
+  },
   {
     title: "ZenResume",
     description:
