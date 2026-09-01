@@ -34,7 +34,7 @@ const projects = [
       "All-in-one business operating system for inventory control, automated GST invoicing, digital storefront ordering, and multi-tenant financial reporting.",
     image: "/projects/project10.png",
     tags: ["React 18", "Tailwind CSS", "Firestore", "GST Compliance"],
-    link: "https://coreventory.vercel.app",
+    link: "https://coreventoryv1.vercel.app",
     category: "Full Stack",
   },
   {
