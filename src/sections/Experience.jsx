@@ -23,10 +23,80 @@ const CompanyLogo = ({ logo, logoColor, company }) => {
   );
 };
 
+const calculateDuration = (startDate, endDate = null) => {
+  if (!startDate) return "";
+
+  const parseToDate = (val) => {
+    if (!val) return new Date();
+    if (val instanceof Date) return val;
+    if (typeof val === "string") {
+      const parts = val.split("-").map(Number);
+      if (parts.length >= 2 && !isNaN(parts[0]) && !isNaN(parts[1])) {
+        return new Date(parts[0], parts[1] - 1, parts[2] || 1);
+      }
+      const monthNames = {
+        jan: 0, feb: 1, mar: 2, apr: 3, may: 4, jun: 5,
+        jul: 6, aug: 7, sep: 8, oct: 9, nov: 10, dec: 11,
+      };
+      const match = val.match(/([a-zA-Z]+)\s*(\d{4})/);
+      if (match) {
+        const monthKey = match[1].toLowerCase().slice(0, 3);
+        const monthIdx = monthNames[monthKey];
+        const yr = parseInt(match[2], 10);
+        if (monthIdx !== undefined && !isNaN(yr)) {
+          return new Date(yr, monthIdx, 1);
+        }
+      }
+    }
+    return new Date(val);
+  };
+
+  const start = parseToDate(startDate);
+  const end = endDate ? parseToDate(endDate) : new Date();
+
+  let months =
+    (end.getFullYear() - start.getFullYear()) * 12 +
+    (end.getMonth() - start.getMonth()) +
+    1;
+
+  if (months < 1) months = 1;
+
+  const years = Math.floor(months / 12);
+  const remainingMonths = months % 12;
+
+  const yearStr = years > 0 ? `${years} ${years === 1 ? "yr" : "yrs"}` : "";
+  const monthStr =
+    remainingMonths > 0
+      ? `${remainingMonths} ${remainingMonths === 1 ? "mo" : "mos"}`
+      : "";
+
+  if (yearStr && monthStr) {
+    return `${yearStr} ${monthStr}`;
+  }
+  return yearStr || monthStr || "1 mo";
+};
+
+const getExperienceDuration = (exp) => {
+  if (exp.startDate) {
+    return calculateDuration(exp.startDate, exp.current ? null : exp.endDate);
+  }
+  if (exp.period) {
+    const parts = exp.period.split(/[–—-]/);
+    if (parts.length > 0) {
+      const startStr = parts[0].trim();
+      const endStr = parts[1]?.trim();
+      const isCurrent = !endStr || /present/i.test(endStr);
+      return calculateDuration(startStr, isCurrent ? null : endStr);
+    }
+  }
+  return exp.duration || "";
+};
+
 const experiences = [
   {
-    period: "Mar 2026 – Present",
-    duration: "5 mos",
+    startDate: "2026-02",
+    endDate: null,
+    period: "Feb 2026 – Present",
     role: "Web Developer",
     company: "Destino Infotech Pvt Ltd",
     type: "Full-time",
@@ -171,7 +241,7 @@ export const Experience = () => {
                             <Calendar className="w-3.5 h-3.5 text-primary/60" />
                             {exp.period}
                             <span className="px-1.5 py-0.5 rounded-md lg-badge text-muted-foreground font-medium">
-                              {exp.duration}
+                              {getExperienceDuration(exp)}
                             </span>
                           </span>
                           <span className="inline-flex items-center gap-1.5">
